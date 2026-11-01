@@ -1,0 +1,12 @@
+# One-click hosting on Render (render.com) so friends can use it.
+services:
+  - type: web
+    name: show-your-working
+    runtime: python
+    buildCommand: "echo no build needed"
+    startCommand: "python -m assistant.web"
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: ANTHROPIC_API_KEY
+        sync: false   # Render asks you for it; it is never stored in GitHub

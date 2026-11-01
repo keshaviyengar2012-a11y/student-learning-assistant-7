@@ -1,0 +1,12 @@
+# Secrets — never upload
+.env
+
+# Student data stays on your computer
+students/*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store

@@ -1,0 +1,2689 @@
+{
+  "boards": [
+    "Cambridge IGCSE",
+    "ICSE",
+    "Cambridge Lower Secondary",
+    "CBSE",
+    "IB MYP",
+    "State board (India)",
+    "Common Core (US)",
+    "Other"
+  ],
+  "grades": [
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "subjects": [
+    {
+      "id": "math",
+      "name": "Mathematics"
+    },
+    {
+      "id": "advmath",
+      "name": "Advanced Mathematics"
+    },
+    {
+      "id": "physics",
+      "name": "Physics"
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry"
+    },
+    {
+      "id": "biology",
+      "name": "Biology"
+    },
+    {
+      "id": "english",
+      "name": "English"
+    }
+  ],
+  "syllabuses": [
+    {
+      "board": "Cambridge IGCSE",
+      "grade": 6,
+      "title": "Cambridge Lower Secondary Stage 7 — Mathematics 0862, Science 0893, English 0861 curriculum frameworks",
+      "short": "Cambridge Lower Secondary Stage 7",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/",
+      "note": "IGCSE begins in Grade 9, so Grade 6 follows Cambridge Lower Secondary (Stage 7).",
+      "subjects": {
+        "math": [
+          {
+            "name": "Integers and powers",
+            "focus": ""
+          },
+          {
+            "name": "Place value, ordering and rounding",
+            "focus": ""
+          },
+          {
+            "name": "Fractions, decimals, percentages, ratio and proportion",
+            "focus": ""
+          },
+          {
+            "name": "Expressions, equations and formulae",
+            "focus": ""
+          },
+          {
+            "name": "Sequences, functions and graphs",
+            "focus": ""
+          },
+          {
+            "name": "Geometrical reasoning, shapes and measurements",
+            "focus": ""
+          },
+          {
+            "name": "Position and transformation",
+            "focus": ""
+          },
+          {
+            "name": "Statistics",
+            "focus": ""
+          },
+          {
+            "name": "Probability",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Forces and energy",
+            "focus": ""
+          },
+          {
+            "name": "Light and sound",
+            "focus": ""
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": ""
+          },
+          {
+            "name": "Earth in space",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Materials and their structure",
+            "focus": ""
+          },
+          {
+            "name": "Properties of materials",
+            "focus": ""
+          },
+          {
+            "name": "Changes to materials",
+            "focus": ""
+          },
+          {
+            "name": "Planet Earth",
+            "focus": "Earth and Space strand: rocks, the atmosphere and Earth's structure"
+          }
+        ],
+        "biology": [
+          {
+            "name": "Structure and function",
+            "focus": ""
+          },
+          {
+            "name": "Life processes",
+            "focus": ""
+          },
+          {
+            "name": "Ecosystems",
+            "focus": ""
+          },
+          {
+            "name": "Cycles on Earth",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading",
+            "focus": "Fiction and non-fiction: understanding, language and structure"
+          },
+          {
+            "name": "Writing",
+            "focus": "Planning, structure, grammar, punctuation, spelling and style"
+          },
+          {
+            "name": "Speaking and listening",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge IGCSE",
+      "grade": 7,
+      "title": "Cambridge Lower Secondary Stage 8 — Mathematics 0862, Science 0893, English 0861 curriculum frameworks",
+      "short": "Cambridge Lower Secondary Stage 8",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/",
+      "note": "IGCSE begins in Grade 9, so Grade 7 follows Cambridge Lower Secondary (Stage 8).",
+      "subjects": {
+        "math": [
+          {
+            "name": "Integers and powers",
+            "focus": ""
+          },
+          {
+            "name": "Place value, ordering and rounding",
+            "focus": ""
+          },
+          {
+            "name": "Fractions, decimals, percentages, ratio and proportion",
+            "focus": ""
+          },
+          {
+            "name": "Expressions, equations and formulae",
+            "focus": ""
+          },
+          {
+            "name": "Sequences, functions and graphs",
+            "focus": ""
+          },
+          {
+            "name": "Geometrical reasoning, shapes and measurements",
+            "focus": ""
+          },
+          {
+            "name": "Position and transformation",
+            "focus": ""
+          },
+          {
+            "name": "Statistics",
+            "focus": ""
+          },
+          {
+            "name": "Probability",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Forces and energy",
+            "focus": ""
+          },
+          {
+            "name": "Light and sound",
+            "focus": ""
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": ""
+          },
+          {
+            "name": "Earth in space",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Materials and their structure",
+            "focus": ""
+          },
+          {
+            "name": "Properties of materials",
+            "focus": ""
+          },
+          {
+            "name": "Changes to materials",
+            "focus": ""
+          },
+          {
+            "name": "Planet Earth",
+            "focus": "Earth and Space strand: rocks, the atmosphere and Earth's structure"
+          }
+        ],
+        "biology": [
+          {
+            "name": "Structure and function",
+            "focus": ""
+          },
+          {
+            "name": "Life processes",
+            "focus": ""
+          },
+          {
+            "name": "Ecosystems",
+            "focus": ""
+          },
+          {
+            "name": "Cycles on Earth",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading",
+            "focus": "Fiction and non-fiction: understanding, language and structure"
+          },
+          {
+            "name": "Writing",
+            "focus": "Planning, structure, grammar, punctuation, spelling and style"
+          },
+          {
+            "name": "Speaking and listening",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge IGCSE",
+      "grade": 8,
+      "title": "Cambridge Lower Secondary Stage 9 — Mathematics 0862, Science 0893, English 0861 curriculum frameworks",
+      "short": "Cambridge Lower Secondary Stage 9",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/",
+      "note": "IGCSE begins in Grade 9, so Grade 8 follows Cambridge Lower Secondary (Stage 9).",
+      "subjects": {
+        "math": [
+          {
+            "name": "Integers and powers",
+            "focus": ""
+          },
+          {
+            "name": "Place value, ordering and rounding",
+            "focus": ""
+          },
+          {
+            "name": "Fractions, decimals, percentages, ratio and proportion",
+            "focus": ""
+          },
+          {
+            "name": "Expressions, equations and formulae",
+            "focus": ""
+          },
+          {
+            "name": "Sequences, functions and graphs",
+            "focus": ""
+          },
+          {
+            "name": "Geometrical reasoning, shapes and measurements",
+            "focus": ""
+          },
+          {
+            "name": "Position and transformation",
+            "focus": ""
+          },
+          {
+            "name": "Statistics",
+            "focus": ""
+          },
+          {
+            "name": "Probability",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Forces and energy",
+            "focus": ""
+          },
+          {
+            "name": "Light and sound",
+            "focus": ""
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": ""
+          },
+          {
+            "name": "Earth in space",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Materials and their structure",
+            "focus": ""
+          },
+          {
+            "name": "Properties of materials",
+            "focus": ""
+          },
+          {
+            "name": "Changes to materials",
+            "focus": ""
+          },
+          {
+            "name": "Planet Earth",
+            "focus": "Earth and Space strand: rocks, the atmosphere and Earth's structure"
+          }
+        ],
+        "biology": [
+          {
+            "name": "Structure and function",
+            "focus": ""
+          },
+          {
+            "name": "Life processes",
+            "focus": ""
+          },
+          {
+            "name": "Ecosystems",
+            "focus": ""
+          },
+          {
+            "name": "Cycles on Earth",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading",
+            "focus": "Fiction and non-fiction: understanding, language and structure"
+          },
+          {
+            "name": "Writing",
+            "focus": "Planning, structure, grammar, punctuation, spelling and style"
+          },
+          {
+            "name": "Speaking and listening",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge IGCSE",
+      "grade": 9,
+      "title": "Cambridge IGCSE (exams in 2028) — Mathematics 0580, Additional Mathematics 0606, Physics 0625, Chemistry 0620, Biology 0610, First Language English 0500",
+      "short": "Cambridge IGCSE",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-upper-secondary/cambridge-igcse/subjects/",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Number",
+            "focus": "Types of number, sets, powers and roots, fractions/decimals/percentages, indices, standard form, estimation, limits of accuracy, ratio and proportion, rates, percentages, money, exponential growth and decay, surds"
+          },
+          {
+            "name": "Algebra and graphs",
+            "focus": "Algebraic manipulation, algebraic fractions, indices, equations, inequalities, sequences, proportion, graphs in practical situations, graphs of functions, sketching curves, differentiation, functions"
+          },
+          {
+            "name": "Coordinate geometry",
+            "focus": "Coordinates, drawing linear graphs, gradient, length and midpoint, equations of linear graphs, parallel and perpendicular lines"
+          },
+          {
+            "name": "Geometry",
+            "focus": "Geometrical terms, constructions, scale drawings, similarity, symmetry, angles, circle theorems"
+          },
+          {
+            "name": "Mensuration",
+            "focus": "Units of measure, area and perimeter, circles/arcs/sectors, surface area and volume, compound shapes"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Pythagoras' theorem, right-angled triangles, exact values, trigonometric functions, sine and cosine rules, 3D problems"
+          },
+          {
+            "name": "Transformations and vectors",
+            "focus": "Transformations, vectors in two dimensions, magnitude, vector geometry"
+          },
+          {
+            "name": "Probability",
+            "focus": "Introduction to probability, relative and expected frequencies, combined events, conditional probability"
+          },
+          {
+            "name": "Statistics",
+            "focus": "Classifying and interpreting data, averages and spread, charts and diagrams, scatter diagrams, cumulative frequency, histograms"
+          }
+        ],
+        "physics": [
+          {
+            "name": "Motion, forces and energy",
+            "focus": "Physical quantities and measurement, motion, mass and weight, density, forces, momentum, energy, work and power, pressure"
+          },
+          {
+            "name": "Thermal physics",
+            "focus": "Kinetic particle model of matter, thermal properties and temperature, transfer of thermal energy"
+          },
+          {
+            "name": "Waves",
+            "focus": "General properties of waves, light, the electromagnetic spectrum, sound"
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": "Magnetism, electrical quantities, electric circuits, electrical safety, electromagnetic effects"
+          },
+          {
+            "name": "Nuclear physics",
+            "focus": "The nuclear model of the atom, radioactivity"
+          },
+          {
+            "name": "Space physics",
+            "focus": "Earth and the Solar System, stars and the Universe"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "States of matter",
+            "focus": ""
+          },
+          {
+            "name": "Atoms, elements and compounds",
+            "focus": ""
+          },
+          {
+            "name": "Stoichiometry",
+            "focus": ""
+          },
+          {
+            "name": "Electrochemistry",
+            "focus": ""
+          },
+          {
+            "name": "Chemical energetics",
+            "focus": ""
+          },
+          {
+            "name": "Chemical reactions",
+            "focus": ""
+          },
+          {
+            "name": "Acids, bases and salts",
+            "focus": ""
+          },
+          {
+            "name": "The Periodic Table",
+            "focus": ""
+          },
+          {
+            "name": "Metals",
+            "focus": ""
+          },
+          {
+            "name": "Chemistry of the environment",
+            "focus": ""
+          },
+          {
+            "name": "Organic chemistry",
+            "focus": ""
+          },
+          {
+            "name": "Experimental techniques and chemical analysis",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Characteristics and classification of living organisms",
+            "focus": "Characteristics of living organisms, classification systems, features of organisms"
+          },
+          {
+            "name": "Organisation of the organism",
+            "focus": "Cell structure, size of specimens"
+          },
+          {
+            "name": "Movement into and out of cells",
+            "focus": "Diffusion, osmosis, active transport"
+          },
+          {
+            "name": "Biological molecules",
+            "focus": ""
+          },
+          {
+            "name": "Enzymes",
+            "focus": ""
+          },
+          {
+            "name": "Plant nutrition",
+            "focus": "Photosynthesis, leaf structure"
+          },
+          {
+            "name": "Human nutrition",
+            "focus": "Diet, digestive system, physical and chemical digestion, absorption"
+          },
+          {
+            "name": "Transport in plants",
+            "focus": "Xylem and phloem, water uptake, transpiration, translocation"
+          },
+          {
+            "name": "Transport in animals",
+            "focus": "Circulatory systems, heart, blood vessels, blood"
+          },
+          {
+            "name": "Diseases and immunity",
+            "focus": ""
+          },
+          {
+            "name": "Gas exchange in humans",
+            "focus": ""
+          },
+          {
+            "name": "Respiration",
+            "focus": "Aerobic and anaerobic respiration"
+          },
+          {
+            "name": "Excretion in humans",
+            "focus": ""
+          },
+          {
+            "name": "Coordination and response",
+            "focus": "Nervous control, sense organs, hormones, homeostasis, tropic responses"
+          },
+          {
+            "name": "Drugs",
+            "focus": ""
+          },
+          {
+            "name": "Reproduction",
+            "focus": "Asexual and sexual reproduction, reproduction in plants and humans, sex hormones, STIs"
+          },
+          {
+            "name": "Inheritance",
+            "focus": "Chromosomes, genes and proteins, mitosis, meiosis, monohybrid inheritance"
+          },
+          {
+            "name": "Variation and selection",
+            "focus": "Variation, adaptive features, selection"
+          },
+          {
+            "name": "Organisms and their environment",
+            "focus": "Energy flow, food chains and webs, nutrient cycles, populations"
+          },
+          {
+            "name": "Human influences on ecosystems",
+            "focus": "Food supply, habitat destruction, pollution, conservation"
+          },
+          {
+            "name": "Biotechnology and genetic modification",
+            "focus": ""
+          }
+        ],
+        "advmath": [
+          {
+            "name": "Functions",
+            "focus": "Domain and range, inverse and composite functions, modulus functions"
+          },
+          {
+            "name": "Quadratic functions",
+            "focus": "Maximum and minimum values, completing the square, conditions on roots"
+          },
+          {
+            "name": "Factors of polynomials",
+            "focus": "Remainder and factor theorems, solving cubic equations"
+          },
+          {
+            "name": "Equations, inequalities and graphs",
+            "focus": "Modulus equations and inequalities, substitution, cubic graphs"
+          },
+          {
+            "name": "Simultaneous equations",
+            "focus": "Linear and non-linear pairs, elimination and substitution"
+          },
+          {
+            "name": "Logarithmic and exponential functions",
+            "focus": "Laws of logarithms, graphs, solving a^x = b"
+          },
+          {
+            "name": "Straight-line graphs",
+            "focus": "Equations of lines, parallel and perpendicular lines, midpoints, transforming relationships to linear form"
+          },
+          {
+            "name": "Coordinate geometry of the circle",
+            "focus": "Equation of a circle, intersections with lines, tangents"
+          },
+          {
+            "name": "Circular measure",
+            "focus": "Radians, arc length and sector area"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Six trigonometric functions, graphs, identities, solving equations"
+          },
+          {
+            "name": "Permutations and combinations",
+            "focus": "Arrangements and selections"
+          },
+          {
+            "name": "Series",
+            "focus": "Binomial theorem, arithmetic and geometric progressions, sum to infinity"
+          },
+          {
+            "name": "Vectors in two dimensions",
+            "focus": "Position and unit vectors, magnitude, relative velocity"
+          },
+          {
+            "name": "Calculus",
+            "focus": "Differentiation, integration, tangents and normals, optimisation, kinematics"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading: comprehension",
+            "focus": "Explicit and implicit meaning in 20th and 21st century texts"
+          },
+          {
+            "name": "Reading: summary",
+            "focus": "Selective summary and writers' attitudes and opinions"
+          },
+          {
+            "name": "Reading: writer's use of language",
+            "focus": "How writers achieve effects and influence readers"
+          },
+          {
+            "name": "Directed writing",
+            "focus": "Discursive, argumentative and persuasive responses to texts: letters, reports, articles, speeches"
+          },
+          {
+            "name": "Composition: descriptive writing",
+            "focus": ""
+          },
+          {
+            "name": "Composition: narrative writing",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge IGCSE",
+      "grade": 10,
+      "title": "Cambridge IGCSE (exams in 2027) — Mathematics 0580, Additional Mathematics 0606, Physics 0625, Chemistry 0620, Biology 0610, First Language English 0500",
+      "short": "Cambridge IGCSE",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-upper-secondary/cambridge-igcse/subjects/",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Number",
+            "focus": "Types of number, sets, powers and roots, fractions/decimals/percentages, indices, standard form, estimation, limits of accuracy, ratio and proportion, rates, percentages, money, exponential growth and decay, surds"
+          },
+          {
+            "name": "Algebra and graphs",
+            "focus": "Algebraic manipulation, algebraic fractions, indices, equations, inequalities, sequences, proportion, graphs in practical situations, graphs of functions, sketching curves, differentiation, functions"
+          },
+          {
+            "name": "Coordinate geometry",
+            "focus": "Coordinates, drawing linear graphs, gradient, length and midpoint, equations of linear graphs, parallel and perpendicular lines"
+          },
+          {
+            "name": "Geometry",
+            "focus": "Geometrical terms, constructions, scale drawings, similarity, symmetry, angles, circle theorems"
+          },
+          {
+            "name": "Mensuration",
+            "focus": "Units of measure, area and perimeter, circles/arcs/sectors, surface area and volume, compound shapes"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Pythagoras' theorem, right-angled triangles, exact values, trigonometric functions, sine and cosine rules, 3D problems"
+          },
+          {
+            "name": "Transformations and vectors",
+            "focus": "Transformations, vectors in two dimensions, magnitude, vector geometry"
+          },
+          {
+            "name": "Probability",
+            "focus": "Introduction to probability, relative and expected frequencies, combined events, conditional probability"
+          },
+          {
+            "name": "Statistics",
+            "focus": "Classifying and interpreting data, averages and spread, charts and diagrams, scatter diagrams, cumulative frequency, histograms"
+          }
+        ],
+        "physics": [
+          {
+            "name": "Motion, forces and energy",
+            "focus": "Physical quantities and measurement, motion, mass and weight, density, forces, momentum, energy, work and power, pressure"
+          },
+          {
+            "name": "Thermal physics",
+            "focus": "Kinetic particle model of matter, thermal properties and temperature, transfer of thermal energy"
+          },
+          {
+            "name": "Waves",
+            "focus": "General properties of waves, light, the electromagnetic spectrum, sound"
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": "Magnetism, electrical quantities, electric circuits, electrical safety, electromagnetic effects"
+          },
+          {
+            "name": "Nuclear physics",
+            "focus": "The nuclear model of the atom, radioactivity"
+          },
+          {
+            "name": "Space physics",
+            "focus": "Earth and the Solar System, stars and the Universe"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "States of matter",
+            "focus": ""
+          },
+          {
+            "name": "Atoms, elements and compounds",
+            "focus": ""
+          },
+          {
+            "name": "Stoichiometry",
+            "focus": ""
+          },
+          {
+            "name": "Electrochemistry",
+            "focus": ""
+          },
+          {
+            "name": "Chemical energetics",
+            "focus": ""
+          },
+          {
+            "name": "Chemical reactions",
+            "focus": ""
+          },
+          {
+            "name": "Acids, bases and salts",
+            "focus": ""
+          },
+          {
+            "name": "The Periodic Table",
+            "focus": ""
+          },
+          {
+            "name": "Metals",
+            "focus": ""
+          },
+          {
+            "name": "Chemistry of the environment",
+            "focus": ""
+          },
+          {
+            "name": "Organic chemistry",
+            "focus": ""
+          },
+          {
+            "name": "Experimental techniques and chemical analysis",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Characteristics and classification of living organisms",
+            "focus": "Characteristics of living organisms, classification systems, features of organisms"
+          },
+          {
+            "name": "Organisation of the organism",
+            "focus": "Cell structure, size of specimens"
+          },
+          {
+            "name": "Movement into and out of cells",
+            "focus": "Diffusion, osmosis, active transport"
+          },
+          {
+            "name": "Biological molecules",
+            "focus": ""
+          },
+          {
+            "name": "Enzymes",
+            "focus": ""
+          },
+          {
+            "name": "Plant nutrition",
+            "focus": "Photosynthesis, leaf structure"
+          },
+          {
+            "name": "Human nutrition",
+            "focus": "Diet, digestive system, physical and chemical digestion, absorption"
+          },
+          {
+            "name": "Transport in plants",
+            "focus": "Xylem and phloem, water uptake, transpiration, translocation"
+          },
+          {
+            "name": "Transport in animals",
+            "focus": "Circulatory systems, heart, blood vessels, blood"
+          },
+          {
+            "name": "Diseases and immunity",
+            "focus": ""
+          },
+          {
+            "name": "Gas exchange in humans",
+            "focus": ""
+          },
+          {
+            "name": "Respiration",
+            "focus": "Aerobic and anaerobic respiration"
+          },
+          {
+            "name": "Excretion in humans",
+            "focus": ""
+          },
+          {
+            "name": "Coordination and response",
+            "focus": "Nervous control, sense organs, hormones, homeostasis, tropic responses"
+          },
+          {
+            "name": "Drugs",
+            "focus": ""
+          },
+          {
+            "name": "Reproduction",
+            "focus": "Asexual and sexual reproduction, reproduction in plants and humans, sex hormones, STIs"
+          },
+          {
+            "name": "Inheritance",
+            "focus": "Chromosomes, genes and proteins, mitosis, meiosis, monohybrid inheritance"
+          },
+          {
+            "name": "Variation and selection",
+            "focus": "Variation, adaptive features, selection"
+          },
+          {
+            "name": "Organisms and their environment",
+            "focus": "Energy flow, food chains and webs, nutrient cycles, populations"
+          },
+          {
+            "name": "Human influences on ecosystems",
+            "focus": "Food supply, habitat destruction, pollution, conservation"
+          },
+          {
+            "name": "Biotechnology and genetic modification",
+            "focus": ""
+          }
+        ],
+        "advmath": [
+          {
+            "name": "Functions",
+            "focus": "Domain and range, inverse and composite functions, modulus functions"
+          },
+          {
+            "name": "Quadratic functions",
+            "focus": "Maximum and minimum values, completing the square, conditions on roots"
+          },
+          {
+            "name": "Factors of polynomials",
+            "focus": "Remainder and factor theorems, solving cubic equations"
+          },
+          {
+            "name": "Equations, inequalities and graphs",
+            "focus": "Modulus equations and inequalities, substitution, cubic graphs"
+          },
+          {
+            "name": "Simultaneous equations",
+            "focus": "Linear and non-linear pairs, elimination and substitution"
+          },
+          {
+            "name": "Logarithmic and exponential functions",
+            "focus": "Laws of logarithms, graphs, solving a^x = b"
+          },
+          {
+            "name": "Straight-line graphs",
+            "focus": "Equations of lines, parallel and perpendicular lines, midpoints, transforming relationships to linear form"
+          },
+          {
+            "name": "Coordinate geometry of the circle",
+            "focus": "Equation of a circle, intersections with lines, tangents"
+          },
+          {
+            "name": "Circular measure",
+            "focus": "Radians, arc length and sector area"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Six trigonometric functions, graphs, identities, solving equations"
+          },
+          {
+            "name": "Permutations and combinations",
+            "focus": "Arrangements and selections"
+          },
+          {
+            "name": "Series",
+            "focus": "Binomial theorem, arithmetic and geometric progressions, sum to infinity"
+          },
+          {
+            "name": "Vectors in two dimensions",
+            "focus": "Position and unit vectors, magnitude, relative velocity"
+          },
+          {
+            "name": "Calculus",
+            "focus": "Differentiation, integration, tangents and normals, optimisation, kinematics"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading: comprehension",
+            "focus": "Explicit and implicit meaning in 20th and 21st century texts"
+          },
+          {
+            "name": "Reading: summary",
+            "focus": "Selective summary and writers' attitudes and opinions"
+          },
+          {
+            "name": "Reading: writer's use of language",
+            "focus": "How writers achieve effects and influence readers"
+          },
+          {
+            "name": "Directed writing",
+            "focus": "Discursive, argumentative and persuasive responses to texts: letters, reports, articles, speeches"
+          },
+          {
+            "name": "Composition: descriptive writing",
+            "focus": ""
+          },
+          {
+            "name": "Composition: narrative writing",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge Lower Secondary",
+      "grade": 6,
+      "title": "Cambridge Lower Secondary Stage 7 — Mathematics 0862, Science 0893, English 0861 curriculum frameworks",
+      "short": "Cambridge Lower Secondary Stage 7",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Integers and powers",
+            "focus": ""
+          },
+          {
+            "name": "Place value, ordering and rounding",
+            "focus": ""
+          },
+          {
+            "name": "Fractions, decimals, percentages, ratio and proportion",
+            "focus": ""
+          },
+          {
+            "name": "Expressions, equations and formulae",
+            "focus": ""
+          },
+          {
+            "name": "Sequences, functions and graphs",
+            "focus": ""
+          },
+          {
+            "name": "Geometrical reasoning, shapes and measurements",
+            "focus": ""
+          },
+          {
+            "name": "Position and transformation",
+            "focus": ""
+          },
+          {
+            "name": "Statistics",
+            "focus": ""
+          },
+          {
+            "name": "Probability",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Forces and energy",
+            "focus": ""
+          },
+          {
+            "name": "Light and sound",
+            "focus": ""
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": ""
+          },
+          {
+            "name": "Earth in space",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Materials and their structure",
+            "focus": ""
+          },
+          {
+            "name": "Properties of materials",
+            "focus": ""
+          },
+          {
+            "name": "Changes to materials",
+            "focus": ""
+          },
+          {
+            "name": "Planet Earth",
+            "focus": "Earth and Space strand: rocks, the atmosphere and Earth's structure"
+          }
+        ],
+        "biology": [
+          {
+            "name": "Structure and function",
+            "focus": ""
+          },
+          {
+            "name": "Life processes",
+            "focus": ""
+          },
+          {
+            "name": "Ecosystems",
+            "focus": ""
+          },
+          {
+            "name": "Cycles on Earth",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading",
+            "focus": "Fiction and non-fiction: understanding, language and structure"
+          },
+          {
+            "name": "Writing",
+            "focus": "Planning, structure, grammar, punctuation, spelling and style"
+          },
+          {
+            "name": "Speaking and listening",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge Lower Secondary",
+      "grade": 7,
+      "title": "Cambridge Lower Secondary Stage 8 — Mathematics 0862, Science 0893, English 0861 curriculum frameworks",
+      "short": "Cambridge Lower Secondary Stage 8",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Integers and powers",
+            "focus": ""
+          },
+          {
+            "name": "Place value, ordering and rounding",
+            "focus": ""
+          },
+          {
+            "name": "Fractions, decimals, percentages, ratio and proportion",
+            "focus": ""
+          },
+          {
+            "name": "Expressions, equations and formulae",
+            "focus": ""
+          },
+          {
+            "name": "Sequences, functions and graphs",
+            "focus": ""
+          },
+          {
+            "name": "Geometrical reasoning, shapes and measurements",
+            "focus": ""
+          },
+          {
+            "name": "Position and transformation",
+            "focus": ""
+          },
+          {
+            "name": "Statistics",
+            "focus": ""
+          },
+          {
+            "name": "Probability",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Forces and energy",
+            "focus": ""
+          },
+          {
+            "name": "Light and sound",
+            "focus": ""
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": ""
+          },
+          {
+            "name": "Earth in space",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Materials and their structure",
+            "focus": ""
+          },
+          {
+            "name": "Properties of materials",
+            "focus": ""
+          },
+          {
+            "name": "Changes to materials",
+            "focus": ""
+          },
+          {
+            "name": "Planet Earth",
+            "focus": "Earth and Space strand: rocks, the atmosphere and Earth's structure"
+          }
+        ],
+        "biology": [
+          {
+            "name": "Structure and function",
+            "focus": ""
+          },
+          {
+            "name": "Life processes",
+            "focus": ""
+          },
+          {
+            "name": "Ecosystems",
+            "focus": ""
+          },
+          {
+            "name": "Cycles on Earth",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading",
+            "focus": "Fiction and non-fiction: understanding, language and structure"
+          },
+          {
+            "name": "Writing",
+            "focus": "Planning, structure, grammar, punctuation, spelling and style"
+          },
+          {
+            "name": "Speaking and listening",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge Lower Secondary",
+      "grade": 8,
+      "title": "Cambridge Lower Secondary Stage 9 — Mathematics 0862, Science 0893, English 0861 curriculum frameworks",
+      "short": "Cambridge Lower Secondary Stage 9",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-lower-secondary/curriculum/",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Integers and powers",
+            "focus": ""
+          },
+          {
+            "name": "Place value, ordering and rounding",
+            "focus": ""
+          },
+          {
+            "name": "Fractions, decimals, percentages, ratio and proportion",
+            "focus": ""
+          },
+          {
+            "name": "Expressions, equations and formulae",
+            "focus": ""
+          },
+          {
+            "name": "Sequences, functions and graphs",
+            "focus": ""
+          },
+          {
+            "name": "Geometrical reasoning, shapes and measurements",
+            "focus": ""
+          },
+          {
+            "name": "Position and transformation",
+            "focus": ""
+          },
+          {
+            "name": "Statistics",
+            "focus": ""
+          },
+          {
+            "name": "Probability",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Forces and energy",
+            "focus": ""
+          },
+          {
+            "name": "Light and sound",
+            "focus": ""
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": ""
+          },
+          {
+            "name": "Earth in space",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Materials and their structure",
+            "focus": ""
+          },
+          {
+            "name": "Properties of materials",
+            "focus": ""
+          },
+          {
+            "name": "Changes to materials",
+            "focus": ""
+          },
+          {
+            "name": "Planet Earth",
+            "focus": "Earth and Space strand: rocks, the atmosphere and Earth's structure"
+          }
+        ],
+        "biology": [
+          {
+            "name": "Structure and function",
+            "focus": ""
+          },
+          {
+            "name": "Life processes",
+            "focus": ""
+          },
+          {
+            "name": "Ecosystems",
+            "focus": ""
+          },
+          {
+            "name": "Cycles on Earth",
+            "focus": "Earth and Space strand"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading",
+            "focus": "Fiction and non-fiction: understanding, language and structure"
+          },
+          {
+            "name": "Writing",
+            "focus": "Planning, structure, grammar, punctuation, spelling and style"
+          },
+          {
+            "name": "Speaking and listening",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge Lower Secondary",
+      "grade": 9,
+      "title": "Cambridge IGCSE (exams in 2028) — Mathematics 0580, Additional Mathematics 0606, Physics 0625, Chemistry 0620, Biology 0610, First Language English 0500",
+      "short": "Cambridge IGCSE",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-upper-secondary/cambridge-igcse/subjects/",
+      "note": "Grade 9 is IGCSE level, so these are the IGCSE syllabus topics.",
+      "subjects": {
+        "math": [
+          {
+            "name": "Number",
+            "focus": "Types of number, sets, powers and roots, fractions/decimals/percentages, indices, standard form, estimation, limits of accuracy, ratio and proportion, rates, percentages, money, exponential growth and decay, surds"
+          },
+          {
+            "name": "Algebra and graphs",
+            "focus": "Algebraic manipulation, algebraic fractions, indices, equations, inequalities, sequences, proportion, graphs in practical situations, graphs of functions, sketching curves, differentiation, functions"
+          },
+          {
+            "name": "Coordinate geometry",
+            "focus": "Coordinates, drawing linear graphs, gradient, length and midpoint, equations of linear graphs, parallel and perpendicular lines"
+          },
+          {
+            "name": "Geometry",
+            "focus": "Geometrical terms, constructions, scale drawings, similarity, symmetry, angles, circle theorems"
+          },
+          {
+            "name": "Mensuration",
+            "focus": "Units of measure, area and perimeter, circles/arcs/sectors, surface area and volume, compound shapes"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Pythagoras' theorem, right-angled triangles, exact values, trigonometric functions, sine and cosine rules, 3D problems"
+          },
+          {
+            "name": "Transformations and vectors",
+            "focus": "Transformations, vectors in two dimensions, magnitude, vector geometry"
+          },
+          {
+            "name": "Probability",
+            "focus": "Introduction to probability, relative and expected frequencies, combined events, conditional probability"
+          },
+          {
+            "name": "Statistics",
+            "focus": "Classifying and interpreting data, averages and spread, charts and diagrams, scatter diagrams, cumulative frequency, histograms"
+          }
+        ],
+        "physics": [
+          {
+            "name": "Motion, forces and energy",
+            "focus": "Physical quantities and measurement, motion, mass and weight, density, forces, momentum, energy, work and power, pressure"
+          },
+          {
+            "name": "Thermal physics",
+            "focus": "Kinetic particle model of matter, thermal properties and temperature, transfer of thermal energy"
+          },
+          {
+            "name": "Waves",
+            "focus": "General properties of waves, light, the electromagnetic spectrum, sound"
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": "Magnetism, electrical quantities, electric circuits, electrical safety, electromagnetic effects"
+          },
+          {
+            "name": "Nuclear physics",
+            "focus": "The nuclear model of the atom, radioactivity"
+          },
+          {
+            "name": "Space physics",
+            "focus": "Earth and the Solar System, stars and the Universe"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "States of matter",
+            "focus": ""
+          },
+          {
+            "name": "Atoms, elements and compounds",
+            "focus": ""
+          },
+          {
+            "name": "Stoichiometry",
+            "focus": ""
+          },
+          {
+            "name": "Electrochemistry",
+            "focus": ""
+          },
+          {
+            "name": "Chemical energetics",
+            "focus": ""
+          },
+          {
+            "name": "Chemical reactions",
+            "focus": ""
+          },
+          {
+            "name": "Acids, bases and salts",
+            "focus": ""
+          },
+          {
+            "name": "The Periodic Table",
+            "focus": ""
+          },
+          {
+            "name": "Metals",
+            "focus": ""
+          },
+          {
+            "name": "Chemistry of the environment",
+            "focus": ""
+          },
+          {
+            "name": "Organic chemistry",
+            "focus": ""
+          },
+          {
+            "name": "Experimental techniques and chemical analysis",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Characteristics and classification of living organisms",
+            "focus": "Characteristics of living organisms, classification systems, features of organisms"
+          },
+          {
+            "name": "Organisation of the organism",
+            "focus": "Cell structure, size of specimens"
+          },
+          {
+            "name": "Movement into and out of cells",
+            "focus": "Diffusion, osmosis, active transport"
+          },
+          {
+            "name": "Biological molecules",
+            "focus": ""
+          },
+          {
+            "name": "Enzymes",
+            "focus": ""
+          },
+          {
+            "name": "Plant nutrition",
+            "focus": "Photosynthesis, leaf structure"
+          },
+          {
+            "name": "Human nutrition",
+            "focus": "Diet, digestive system, physical and chemical digestion, absorption"
+          },
+          {
+            "name": "Transport in plants",
+            "focus": "Xylem and phloem, water uptake, transpiration, translocation"
+          },
+          {
+            "name": "Transport in animals",
+            "focus": "Circulatory systems, heart, blood vessels, blood"
+          },
+          {
+            "name": "Diseases and immunity",
+            "focus": ""
+          },
+          {
+            "name": "Gas exchange in humans",
+            "focus": ""
+          },
+          {
+            "name": "Respiration",
+            "focus": "Aerobic and anaerobic respiration"
+          },
+          {
+            "name": "Excretion in humans",
+            "focus": ""
+          },
+          {
+            "name": "Coordination and response",
+            "focus": "Nervous control, sense organs, hormones, homeostasis, tropic responses"
+          },
+          {
+            "name": "Drugs",
+            "focus": ""
+          },
+          {
+            "name": "Reproduction",
+            "focus": "Asexual and sexual reproduction, reproduction in plants and humans, sex hormones, STIs"
+          },
+          {
+            "name": "Inheritance",
+            "focus": "Chromosomes, genes and proteins, mitosis, meiosis, monohybrid inheritance"
+          },
+          {
+            "name": "Variation and selection",
+            "focus": "Variation, adaptive features, selection"
+          },
+          {
+            "name": "Organisms and their environment",
+            "focus": "Energy flow, food chains and webs, nutrient cycles, populations"
+          },
+          {
+            "name": "Human influences on ecosystems",
+            "focus": "Food supply, habitat destruction, pollution, conservation"
+          },
+          {
+            "name": "Biotechnology and genetic modification",
+            "focus": ""
+          }
+        ],
+        "advmath": [
+          {
+            "name": "Functions",
+            "focus": "Domain and range, inverse and composite functions, modulus functions"
+          },
+          {
+            "name": "Quadratic functions",
+            "focus": "Maximum and minimum values, completing the square, conditions on roots"
+          },
+          {
+            "name": "Factors of polynomials",
+            "focus": "Remainder and factor theorems, solving cubic equations"
+          },
+          {
+            "name": "Equations, inequalities and graphs",
+            "focus": "Modulus equations and inequalities, substitution, cubic graphs"
+          },
+          {
+            "name": "Simultaneous equations",
+            "focus": "Linear and non-linear pairs, elimination and substitution"
+          },
+          {
+            "name": "Logarithmic and exponential functions",
+            "focus": "Laws of logarithms, graphs, solving a^x = b"
+          },
+          {
+            "name": "Straight-line graphs",
+            "focus": "Equations of lines, parallel and perpendicular lines, midpoints, transforming relationships to linear form"
+          },
+          {
+            "name": "Coordinate geometry of the circle",
+            "focus": "Equation of a circle, intersections with lines, tangents"
+          },
+          {
+            "name": "Circular measure",
+            "focus": "Radians, arc length and sector area"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Six trigonometric functions, graphs, identities, solving equations"
+          },
+          {
+            "name": "Permutations and combinations",
+            "focus": "Arrangements and selections"
+          },
+          {
+            "name": "Series",
+            "focus": "Binomial theorem, arithmetic and geometric progressions, sum to infinity"
+          },
+          {
+            "name": "Vectors in two dimensions",
+            "focus": "Position and unit vectors, magnitude, relative velocity"
+          },
+          {
+            "name": "Calculus",
+            "focus": "Differentiation, integration, tangents and normals, optimisation, kinematics"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading: comprehension",
+            "focus": "Explicit and implicit meaning in 20th and 21st century texts"
+          },
+          {
+            "name": "Reading: summary",
+            "focus": "Selective summary and writers' attitudes and opinions"
+          },
+          {
+            "name": "Reading: writer's use of language",
+            "focus": "How writers achieve effects and influence readers"
+          },
+          {
+            "name": "Directed writing",
+            "focus": "Discursive, argumentative and persuasive responses to texts: letters, reports, articles, speeches"
+          },
+          {
+            "name": "Composition: descriptive writing",
+            "focus": ""
+          },
+          {
+            "name": "Composition: narrative writing",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "Cambridge Lower Secondary",
+      "grade": 10,
+      "title": "Cambridge IGCSE (exams in 2027) — Mathematics 0580, Additional Mathematics 0606, Physics 0625, Chemistry 0620, Biology 0610, First Language English 0500",
+      "short": "Cambridge IGCSE",
+      "url": "https://www.cambridgeinternational.org/programmes-and-qualifications/cambridge-upper-secondary/cambridge-igcse/subjects/",
+      "note": "Grade 10 is IGCSE level, so these are the IGCSE syllabus topics.",
+      "subjects": {
+        "math": [
+          {
+            "name": "Number",
+            "focus": "Types of number, sets, powers and roots, fractions/decimals/percentages, indices, standard form, estimation, limits of accuracy, ratio and proportion, rates, percentages, money, exponential growth and decay, surds"
+          },
+          {
+            "name": "Algebra and graphs",
+            "focus": "Algebraic manipulation, algebraic fractions, indices, equations, inequalities, sequences, proportion, graphs in practical situations, graphs of functions, sketching curves, differentiation, functions"
+          },
+          {
+            "name": "Coordinate geometry",
+            "focus": "Coordinates, drawing linear graphs, gradient, length and midpoint, equations of linear graphs, parallel and perpendicular lines"
+          },
+          {
+            "name": "Geometry",
+            "focus": "Geometrical terms, constructions, scale drawings, similarity, symmetry, angles, circle theorems"
+          },
+          {
+            "name": "Mensuration",
+            "focus": "Units of measure, area and perimeter, circles/arcs/sectors, surface area and volume, compound shapes"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Pythagoras' theorem, right-angled triangles, exact values, trigonometric functions, sine and cosine rules, 3D problems"
+          },
+          {
+            "name": "Transformations and vectors",
+            "focus": "Transformations, vectors in two dimensions, magnitude, vector geometry"
+          },
+          {
+            "name": "Probability",
+            "focus": "Introduction to probability, relative and expected frequencies, combined events, conditional probability"
+          },
+          {
+            "name": "Statistics",
+            "focus": "Classifying and interpreting data, averages and spread, charts and diagrams, scatter diagrams, cumulative frequency, histograms"
+          }
+        ],
+        "physics": [
+          {
+            "name": "Motion, forces and energy",
+            "focus": "Physical quantities and measurement, motion, mass and weight, density, forces, momentum, energy, work and power, pressure"
+          },
+          {
+            "name": "Thermal physics",
+            "focus": "Kinetic particle model of matter, thermal properties and temperature, transfer of thermal energy"
+          },
+          {
+            "name": "Waves",
+            "focus": "General properties of waves, light, the electromagnetic spectrum, sound"
+          },
+          {
+            "name": "Electricity and magnetism",
+            "focus": "Magnetism, electrical quantities, electric circuits, electrical safety, electromagnetic effects"
+          },
+          {
+            "name": "Nuclear physics",
+            "focus": "The nuclear model of the atom, radioactivity"
+          },
+          {
+            "name": "Space physics",
+            "focus": "Earth and the Solar System, stars and the Universe"
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "States of matter",
+            "focus": ""
+          },
+          {
+            "name": "Atoms, elements and compounds",
+            "focus": ""
+          },
+          {
+            "name": "Stoichiometry",
+            "focus": ""
+          },
+          {
+            "name": "Electrochemistry",
+            "focus": ""
+          },
+          {
+            "name": "Chemical energetics",
+            "focus": ""
+          },
+          {
+            "name": "Chemical reactions",
+            "focus": ""
+          },
+          {
+            "name": "Acids, bases and salts",
+            "focus": ""
+          },
+          {
+            "name": "The Periodic Table",
+            "focus": ""
+          },
+          {
+            "name": "Metals",
+            "focus": ""
+          },
+          {
+            "name": "Chemistry of the environment",
+            "focus": ""
+          },
+          {
+            "name": "Organic chemistry",
+            "focus": ""
+          },
+          {
+            "name": "Experimental techniques and chemical analysis",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Characteristics and classification of living organisms",
+            "focus": "Characteristics of living organisms, classification systems, features of organisms"
+          },
+          {
+            "name": "Organisation of the organism",
+            "focus": "Cell structure, size of specimens"
+          },
+          {
+            "name": "Movement into and out of cells",
+            "focus": "Diffusion, osmosis, active transport"
+          },
+          {
+            "name": "Biological molecules",
+            "focus": ""
+          },
+          {
+            "name": "Enzymes",
+            "focus": ""
+          },
+          {
+            "name": "Plant nutrition",
+            "focus": "Photosynthesis, leaf structure"
+          },
+          {
+            "name": "Human nutrition",
+            "focus": "Diet, digestive system, physical and chemical digestion, absorption"
+          },
+          {
+            "name": "Transport in plants",
+            "focus": "Xylem and phloem, water uptake, transpiration, translocation"
+          },
+          {
+            "name": "Transport in animals",
+            "focus": "Circulatory systems, heart, blood vessels, blood"
+          },
+          {
+            "name": "Diseases and immunity",
+            "focus": ""
+          },
+          {
+            "name": "Gas exchange in humans",
+            "focus": ""
+          },
+          {
+            "name": "Respiration",
+            "focus": "Aerobic and anaerobic respiration"
+          },
+          {
+            "name": "Excretion in humans",
+            "focus": ""
+          },
+          {
+            "name": "Coordination and response",
+            "focus": "Nervous control, sense organs, hormones, homeostasis, tropic responses"
+          },
+          {
+            "name": "Drugs",
+            "focus": ""
+          },
+          {
+            "name": "Reproduction",
+            "focus": "Asexual and sexual reproduction, reproduction in plants and humans, sex hormones, STIs"
+          },
+          {
+            "name": "Inheritance",
+            "focus": "Chromosomes, genes and proteins, mitosis, meiosis, monohybrid inheritance"
+          },
+          {
+            "name": "Variation and selection",
+            "focus": "Variation, adaptive features, selection"
+          },
+          {
+            "name": "Organisms and their environment",
+            "focus": "Energy flow, food chains and webs, nutrient cycles, populations"
+          },
+          {
+            "name": "Human influences on ecosystems",
+            "focus": "Food supply, habitat destruction, pollution, conservation"
+          },
+          {
+            "name": "Biotechnology and genetic modification",
+            "focus": ""
+          }
+        ],
+        "advmath": [
+          {
+            "name": "Functions",
+            "focus": "Domain and range, inverse and composite functions, modulus functions"
+          },
+          {
+            "name": "Quadratic functions",
+            "focus": "Maximum and minimum values, completing the square, conditions on roots"
+          },
+          {
+            "name": "Factors of polynomials",
+            "focus": "Remainder and factor theorems, solving cubic equations"
+          },
+          {
+            "name": "Equations, inequalities and graphs",
+            "focus": "Modulus equations and inequalities, substitution, cubic graphs"
+          },
+          {
+            "name": "Simultaneous equations",
+            "focus": "Linear and non-linear pairs, elimination and substitution"
+          },
+          {
+            "name": "Logarithmic and exponential functions",
+            "focus": "Laws of logarithms, graphs, solving a^x = b"
+          },
+          {
+            "name": "Straight-line graphs",
+            "focus": "Equations of lines, parallel and perpendicular lines, midpoints, transforming relationships to linear form"
+          },
+          {
+            "name": "Coordinate geometry of the circle",
+            "focus": "Equation of a circle, intersections with lines, tangents"
+          },
+          {
+            "name": "Circular measure",
+            "focus": "Radians, arc length and sector area"
+          },
+          {
+            "name": "Trigonometry",
+            "focus": "Six trigonometric functions, graphs, identities, solving equations"
+          },
+          {
+            "name": "Permutations and combinations",
+            "focus": "Arrangements and selections"
+          },
+          {
+            "name": "Series",
+            "focus": "Binomial theorem, arithmetic and geometric progressions, sum to infinity"
+          },
+          {
+            "name": "Vectors in two dimensions",
+            "focus": "Position and unit vectors, magnitude, relative velocity"
+          },
+          {
+            "name": "Calculus",
+            "focus": "Differentiation, integration, tangents and normals, optimisation, kinematics"
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading: comprehension",
+            "focus": "Explicit and implicit meaning in 20th and 21st century texts"
+          },
+          {
+            "name": "Reading: summary",
+            "focus": "Selective summary and writers' attitudes and opinions"
+          },
+          {
+            "name": "Reading: writer's use of language",
+            "focus": "How writers achieve effects and influence readers"
+          },
+          {
+            "name": "Directed writing",
+            "focus": "Discursive, argumentative and persuasive responses to texts: letters, reports, articles, speeches"
+          },
+          {
+            "name": "Composition: descriptive writing",
+            "focus": ""
+          },
+          {
+            "name": "Composition: narrative writing",
+            "focus": ""
+          }
+        ]
+      }
+    },
+    {
+      "board": "CBSE",
+      "grade": 6,
+      "title": "NCERT Class 6 — Ganita Prakash and Curiosity · CBSE 2026-27",
+      "short": "NCERT Class 6",
+      "url": "https://ncert.nic.in/textbook.php",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Patterns in Mathematics",
+            "focus": ""
+          },
+          {
+            "name": "Lines and Angles",
+            "focus": ""
+          },
+          {
+            "name": "Number Play",
+            "focus": ""
+          },
+          {
+            "name": "Data Handling and Presentation",
+            "focus": ""
+          },
+          {
+            "name": "Prime Time",
+            "focus": ""
+          },
+          {
+            "name": "Perimeter and Area",
+            "focus": ""
+          },
+          {
+            "name": "Fractions",
+            "focus": ""
+          },
+          {
+            "name": "Playing with Constructions",
+            "focus": ""
+          },
+          {
+            "name": "Symmetry",
+            "focus": ""
+          },
+          {
+            "name": "The Other Side of Zero",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Exploring Magnets",
+            "focus": ""
+          },
+          {
+            "name": "Measurement of Length and Motion",
+            "focus": ""
+          },
+          {
+            "name": "Temperature and its Measurement",
+            "focus": ""
+          },
+          {
+            "name": "Beyond Earth",
+            "focus": ""
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Materials Around Us",
+            "focus": ""
+          },
+          {
+            "name": "A Journey through States of Water",
+            "focus": ""
+          },
+          {
+            "name": "Methods of Separation in Everyday Life",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Diversity in the Living World",
+            "focus": ""
+          },
+          {
+            "name": "Mindful Eating: A Path to a Healthy Body",
+            "focus": ""
+          },
+          {
+            "name": "Living Creatures: Exploring their Characteristics",
+            "focus": ""
+          },
+          {
+            "name": "Nature's Treasures",
+            "focus": ""
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading comprehension",
+            "focus": "Unseen discursive and case-based passages"
+          },
+          {
+            "name": "Grammar: tenses and modal auxiliaries",
+            "focus": "Sequence of tenses, modals"
+          },
+          {
+            "name": "Grammar: reported speech and clauses",
+            "focus": "Reported speech, conditionals, noun and relative clauses"
+          },
+          {
+            "name": "Grammar: agreement and determiners",
+            "focus": "Subject-verb concord, determiners, editing and transformation"
+          },
+          {
+            "name": "Writing: letters, emails and notices",
+            "focus": "Formal letters and emails, notices, invitations"
+          },
+          {
+            "name": "Writing: articles, descriptions and essays",
+            "focus": "Magazine articles, descriptive and narrative writing"
+          },
+          {
+            "name": "Literature: prose, poetry and drama",
+            "focus": "Chapters from your NCERT English textbook"
+          }
+        ]
+      }
+    },
+    {
+      "board": "CBSE",
+      "grade": 7,
+      "title": "NCERT Class 7 — Ganita Prakash (Parts 1 and 2) and Curiosity · CBSE 2026-27",
+      "short": "NCERT Class 7",
+      "url": "https://ncert.nic.in/textbook.php",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Large Numbers Around Us",
+            "focus": ""
+          },
+          {
+            "name": "Arithmetic Expressions",
+            "focus": ""
+          },
+          {
+            "name": "A Peek Beyond the Point",
+            "focus": ""
+          },
+          {
+            "name": "Expressions using Letter-Numbers",
+            "focus": ""
+          },
+          {
+            "name": "Parallel and Intersecting Lines",
+            "focus": ""
+          },
+          {
+            "name": "Number Play",
+            "focus": ""
+          },
+          {
+            "name": "A Tale of Three Intersecting Lines",
+            "focus": ""
+          },
+          {
+            "name": "Working with Fractions",
+            "focus": ""
+          },
+          {
+            "name": "Geometric Twins",
+            "focus": ""
+          },
+          {
+            "name": "Operations with Integers",
+            "focus": ""
+          },
+          {
+            "name": "Finding Common Ground",
+            "focus": ""
+          },
+          {
+            "name": "Another Peek Beyond the Point",
+            "focus": ""
+          },
+          {
+            "name": "Connecting the Dots",
+            "focus": ""
+          },
+          {
+            "name": "Constructions and Tilings",
+            "focus": ""
+          },
+          {
+            "name": "Finding the Unknown",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Electricity: Circuits and their Components",
+            "focus": ""
+          },
+          {
+            "name": "Heat Transfer in Nature",
+            "focus": ""
+          },
+          {
+            "name": "Measurement of Time and Motion",
+            "focus": ""
+          },
+          {
+            "name": "Light: Shadows and Reflections",
+            "focus": ""
+          },
+          {
+            "name": "Earth, Moon and the Sun",
+            "focus": ""
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Exploring Substances: Acidic, Basic and Neutral",
+            "focus": ""
+          },
+          {
+            "name": "The World of Metals and Non-metals",
+            "focus": ""
+          },
+          {
+            "name": "Changes Around Us: Physical and Chemical",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Adolescence: A Stage of Growth and Change",
+            "focus": ""
+          },
+          {
+            "name": "Life Processes in Animals",
+            "focus": ""
+          },
+          {
+            "name": "Life Processes in Plants",
+            "focus": ""
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading comprehension",
+            "focus": "Unseen discursive and case-based passages"
+          },
+          {
+            "name": "Grammar: tenses and modal auxiliaries",
+            "focus": "Sequence of tenses, modals"
+          },
+          {
+            "name": "Grammar: reported speech and clauses",
+            "focus": "Reported speech, conditionals, noun and relative clauses"
+          },
+          {
+            "name": "Grammar: agreement and determiners",
+            "focus": "Subject-verb concord, determiners, editing and transformation"
+          },
+          {
+            "name": "Writing: letters, emails and notices",
+            "focus": "Formal letters and emails, notices, invitations"
+          },
+          {
+            "name": "Writing: articles, descriptions and essays",
+            "focus": "Magazine articles, descriptive and narrative writing"
+          },
+          {
+            "name": "Literature: prose, poetry and drama",
+            "focus": "Chapters from your NCERT English textbook"
+          }
+        ]
+      }
+    },
+    {
+      "board": "CBSE",
+      "grade": 8,
+      "title": "NCERT Class 8 — Ganita Prakash (Parts 1 and 2) and Curiosity · CBSE 2026-27",
+      "short": "NCERT Class 8",
+      "url": "https://ncert.nic.in/textbook.php",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "A Square and a Cube",
+            "focus": ""
+          },
+          {
+            "name": "Power Play",
+            "focus": ""
+          },
+          {
+            "name": "A Story of Numbers",
+            "focus": ""
+          },
+          {
+            "name": "Quadrilaterals",
+            "focus": ""
+          },
+          {
+            "name": "Number Play",
+            "focus": ""
+          },
+          {
+            "name": "We Distribute, Yet Things Multiply",
+            "focus": ""
+          },
+          {
+            "name": "Proportional Reasoning 1",
+            "focus": ""
+          },
+          {
+            "name": "Fractions in Disguise",
+            "focus": ""
+          },
+          {
+            "name": "The Baudhayana-Pythagoras Theorem",
+            "focus": ""
+          },
+          {
+            "name": "Proportional Reasoning 2",
+            "focus": ""
+          },
+          {
+            "name": "Exploring Some Geometric Themes",
+            "focus": ""
+          },
+          {
+            "name": "Tales by Dots and Lines",
+            "focus": ""
+          },
+          {
+            "name": "Algebra Play",
+            "focus": ""
+          },
+          {
+            "name": "Area",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Electricity: Magnetic and Heating Effects",
+            "focus": ""
+          },
+          {
+            "name": "Exploring Forces",
+            "focus": ""
+          },
+          {
+            "name": "Pressure, Winds, Storms and Cyclones",
+            "focus": ""
+          },
+          {
+            "name": "Light: Mirrors and Lenses",
+            "focus": ""
+          },
+          {
+            "name": "Keeping Time with the Skies",
+            "focus": ""
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Particulate Nature of Matter",
+            "focus": ""
+          },
+          {
+            "name": "Nature of Matter: Elements, Compounds and Mixtures",
+            "focus": ""
+          },
+          {
+            "name": "The Amazing World of Solutes, Solvents and Solutions",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "The Invisible Living World: Beyond Our Naked Eye",
+            "focus": ""
+          },
+          {
+            "name": "Health: The Ultimate Treasure",
+            "focus": ""
+          },
+          {
+            "name": "How Nature Works in Harmony",
+            "focus": ""
+          },
+          {
+            "name": "Our Home: Earth, a Unique Life Sustaining Planet",
+            "focus": ""
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading comprehension",
+            "focus": "Unseen discursive and case-based passages"
+          },
+          {
+            "name": "Grammar: tenses and modal auxiliaries",
+            "focus": "Sequence of tenses, modals"
+          },
+          {
+            "name": "Grammar: reported speech and clauses",
+            "focus": "Reported speech, conditionals, noun and relative clauses"
+          },
+          {
+            "name": "Grammar: agreement and determiners",
+            "focus": "Subject-verb concord, determiners, editing and transformation"
+          },
+          {
+            "name": "Writing: letters, emails and notices",
+            "focus": "Formal letters and emails, notices, invitations"
+          },
+          {
+            "name": "Writing: articles, descriptions and essays",
+            "focus": "Magazine articles, descriptive and narrative writing"
+          },
+          {
+            "name": "Literature: prose, poetry and drama",
+            "focus": "Chapters from your NCERT English textbook"
+          }
+        ]
+      }
+    },
+    {
+      "board": "CBSE",
+      "grade": 9,
+      "title": "NCERT Class 9 (new for 2026-27) — Ganita Manjari (Parts 1 and 2) and Exploration · CBSE 2026-27",
+      "short": "NCERT Class 9",
+      "url": "https://ncert.nic.in/textbook.php",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Orienting Yourself: The Use of Coordinates",
+            "focus": ""
+          },
+          {
+            "name": "Introduction to Linear Polynomials",
+            "focus": ""
+          },
+          {
+            "name": "The World of Numbers",
+            "focus": ""
+          },
+          {
+            "name": "Exploring Algebraic Identities",
+            "focus": ""
+          },
+          {
+            "name": "I'm Up and Down, and Round and Round",
+            "focus": ""
+          },
+          {
+            "name": "Measuring Space: Perimeter and Area",
+            "focus": ""
+          },
+          {
+            "name": "The Mathematics of Maybe: Introduction to Probability",
+            "focus": ""
+          },
+          {
+            "name": "Predicting What Comes Next: Exploring Sequences and Progressions",
+            "focus": ""
+          },
+          {
+            "name": "Propositions and their Converses",
+            "focus": ""
+          },
+          {
+            "name": "How Quantities Combine: Understanding Data",
+            "focus": ""
+          },
+          {
+            "name": "The World of Algorithms",
+            "focus": ""
+          },
+          {
+            "name": "Quadrilaterals",
+            "focus": ""
+          },
+          {
+            "name": "Two Variables, One Line",
+            "focus": ""
+          },
+          {
+            "name": "Math of Space: Surface Area and Volume",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Describing Motion Around Us",
+            "focus": ""
+          },
+          {
+            "name": "How Forces Affect Motion",
+            "focus": ""
+          },
+          {
+            "name": "Work, Energy and Simple Machines",
+            "focus": ""
+          },
+          {
+            "name": "Sound Waves: Characteristics and Applications",
+            "focus": ""
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Exploring Mixtures and their Separation",
+            "focus": ""
+          },
+          {
+            "name": "Journey Inside the Atom",
+            "focus": ""
+          },
+          {
+            "name": "Atomic Foundation of Matter",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Cell: The Building Block of Life",
+            "focus": ""
+          },
+          {
+            "name": "Tissues in Action",
+            "focus": ""
+          },
+          {
+            "name": "Reproduction: How Life Continues",
+            "focus": ""
+          },
+          {
+            "name": "Patterns in Life: Diversity and Classification",
+            "focus": ""
+          },
+          {
+            "name": "Earth as a System: Energy, Matter and Life",
+            "focus": ""
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading comprehension",
+            "focus": "Unseen discursive and case-based passages"
+          },
+          {
+            "name": "Grammar: tenses and modal auxiliaries",
+            "focus": "Sequence of tenses, modals"
+          },
+          {
+            "name": "Grammar: reported speech and clauses",
+            "focus": "Reported speech, conditionals, noun and relative clauses"
+          },
+          {
+            "name": "Grammar: agreement and determiners",
+            "focus": "Subject-verb concord, determiners, editing and transformation"
+          },
+          {
+            "name": "Writing: letters, emails and notices",
+            "focus": "Formal letters and emails, notices, invitations"
+          },
+          {
+            "name": "Writing: articles, descriptions and essays",
+            "focus": "Magazine articles, descriptive and narrative writing"
+          },
+          {
+            "name": "Literature: prose, poetry and drama",
+            "focus": "Chapters from your NCERT English textbook"
+          }
+        ],
+        "advmath": [
+          {
+            "name": "Sets",
+            "focus": "Representation, finite and infinite sets, subsets, power set, Venn diagrams, set operations, complement"
+          },
+          {
+            "name": "Logarithms",
+            "focus": "Logarithms as the inverse of exponents, properties, base 10, solving logarithmic equations"
+          },
+          {
+            "name": "Relations and Functions",
+            "focus": "Ordered pairs, Cartesian product, relations, functions and their graphs"
+          },
+          {
+            "name": "Coordinate Geometry",
+            "focus": "Reflections, slope and its properties, intercepts, forms of the equation of a line"
+          },
+          {
+            "name": "Combinatorics",
+            "focus": "Fundamental principle of counting, factorials, permutations, combinations"
+          },
+          {
+            "name": "Exploring Some More Progressions",
+            "focus": "Sum of a geometric progression, infinite GP, method of differences"
+          }
+        ]
+      }
+    },
+    {
+      "board": "CBSE",
+      "grade": 10,
+      "title": "NCERT Class 10 (books for 2026-27) — Mathematics and Science · CBSE 2026-27",
+      "short": "NCERT Class 10",
+      "url": "https://ncert.nic.in/textbook.php",
+      "note": "",
+      "subjects": {
+        "math": [
+          {
+            "name": "Real Numbers",
+            "focus": ""
+          },
+          {
+            "name": "Polynomials",
+            "focus": ""
+          },
+          {
+            "name": "Pair of Linear Equations in Two Variables",
+            "focus": ""
+          },
+          {
+            "name": "Quadratic Equations",
+            "focus": ""
+          },
+          {
+            "name": "Arithmetic Progressions",
+            "focus": ""
+          },
+          {
+            "name": "Triangles",
+            "focus": ""
+          },
+          {
+            "name": "Coordinate Geometry",
+            "focus": ""
+          },
+          {
+            "name": "Introduction to Trigonometry",
+            "focus": ""
+          },
+          {
+            "name": "Some Applications of Trigonometry",
+            "focus": ""
+          },
+          {
+            "name": "Circles",
+            "focus": ""
+          },
+          {
+            "name": "Areas Related to Circles",
+            "focus": ""
+          },
+          {
+            "name": "Surface Areas and Volumes",
+            "focus": ""
+          },
+          {
+            "name": "Statistics",
+            "focus": ""
+          },
+          {
+            "name": "Probability",
+            "focus": ""
+          }
+        ],
+        "physics": [
+          {
+            "name": "Light: Reflection and Refraction",
+            "focus": ""
+          },
+          {
+            "name": "The Human Eye and the Colourful World",
+            "focus": ""
+          },
+          {
+            "name": "Electricity",
+            "focus": ""
+          },
+          {
+            "name": "Magnetic Effects of Electric Current",
+            "focus": ""
+          }
+        ],
+        "chemistry": [
+          {
+            "name": "Chemical Reactions and Equations",
+            "focus": ""
+          },
+          {
+            "name": "Acids, Bases and Salts",
+            "focus": ""
+          },
+          {
+            "name": "Metals and Non-metals",
+            "focus": ""
+          },
+          {
+            "name": "Carbon and its Compounds",
+            "focus": ""
+          }
+        ],
+        "biology": [
+          {
+            "name": "Life Processes",
+            "focus": ""
+          },
+          {
+            "name": "Control and Coordination",
+            "focus": ""
+          },
+          {
+            "name": "How do Organisms Reproduce?",
+            "focus": ""
+          },
+          {
+            "name": "Heredity",
+            "focus": ""
+          },
+          {
+            "name": "Our Environment",
+            "focus": ""
+          }
+        ],
+        "english": [
+          {
+            "name": "Reading comprehension",
+            "focus": "Unseen discursive and case-based passages"
+          },
+          {
+            "name": "Grammar: tenses and modal auxiliaries",
+            "focus": "Sequence of tenses, modals"
+          },
+          {
+            "name": "Grammar: reported speech and clauses",
+            "focus": "Reported speech, conditionals, noun and relative clauses"
+          },
+          {
+            "name": "Grammar: agreement and determiners",
+            "focus": "Subject-verb concord, determiners, editing and transformation"
+          },
+          {
+            "name": "Writing: letters, emails and notices",
+            "focus": "Formal letters and emails, notices, invitations"
+          },
+          {
+            "name": "Writing: articles, descriptions and essays",
+            "focus": "Magazine articles, descriptive and narrative writing"
+          },
+          {
+            "name": "Literature: First Flight and Footprints without Feet",
+            "focus": "Prose, poetry and supplementary reader"
+          }
+        ]
+      }
+    }
+  ]
+}
