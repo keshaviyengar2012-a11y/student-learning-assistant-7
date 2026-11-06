@@ -6,9 +6,7 @@ account needed. Claude is reached through **your** API key, which stays on the s
 
 ```
 student-learning-assistant/
-├── api/
-│   ├── claude.py       Vercel function: POST /api/claude
-│   └── health.py       Vercel function: GET /api/health
+├── app.py              Vercel entrypoint: the app + /api/claude + /api/health
 ├── assistant/
 │   ├── __init__.py
 │   ├── cli.py          ask doubts in the terminal
@@ -17,12 +15,11 @@ student-learning-assistant/
 │   ├── llm.py          the only file that talks to Claude
 │   ├── profile.py      student profiles for the terminal version
 │   ├── tutor.py        safety rules + per-student limits
-│   └── web.py          the API handler + a local web server
+│   └── web.py          the API logic + a local web server
 ├── data/syllabus.json  official topics (NCERT, Cambridge IGCSE, Lower Secondary)
 ├── public/index.html   the app (Vercel serves this at /)
 ├── students/           terminal profiles (not uploaded)
 ├── tests/
-├── vercel.json         Vercel settings (60-second time limit for papers)
 ├── .vercelignore
 ├── .env.example
 ├── .gitignore
@@ -31,7 +28,7 @@ student-learning-assistant/
 
 ## Put it online with Vercel
 1. Go to **vercel.com**, sign in with GitHub, click **Add New → Project** and import this repo.
-2. Leave **Framework Preset** as **Other** and the build settings empty.
+2. Vercel detects Python and finds `app.py` by itself. Leave the build settings empty.
 3. Open **Environment Variables** and add `ANTHROPIC_API_KEY` = your key from console.anthropic.com.
 4. Click **Deploy**. Share the address Vercel gives you, e.g. `https://student-learning-assistant-7.vercel.app`.
 

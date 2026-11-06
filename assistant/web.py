@@ -1,7 +1,7 @@
 """The web server: hosts the app and passes its questions to Claude.
 
 On your computer:  python -m assistant.web     then open http://127.0.0.1:8000
-On Vercel:         api/claude.py and api/health.py use ApiHandler from here.
+On Vercel:         app.py (in the main folder) uses the same functions.
 """
 from __future__ import annotations
 
@@ -16,38 +16,69 @@ from .llm import LLMError
 MAX_BODY = 4_000_000  # bytes; room for a photo of working (Vercel's limit is 4.5 MB)
 
 
-class ApiHandler(BaseHTTPRequestHandler):
-    """The /api/claude logic. Used by the local server below and by api/claude.py on Vercel."""
+def origin_allowed(origin: str | None, hosts) -> bool:
+    """Only the app's own website (plus ALLOWED_ORIGINS) may use the tutor."""
+    if not origin:
+        return True
+    own = {f"{scheme}://{h}" for h in hosts if h for scheme in ("http", "https")}
+    return origin in own or origin in config.ALLOWED_ORIGINS
+
+
+def cors_headers(origin: str | None) -> list[tuple[str, str]]:
+    if origin and origin in config.ALLOWED_ORIGINS:
+        return [("Access-Control-Allow-Origin", origin), ("Access-Control-Allow-Methods", "POST, OPTIONS"),
+                ("Access-Control-Allow-Headers", "content-type"), ("Vary", "Origin")]
+    return []
+
+
+def health() -> tuple[int, dict]:
+    return 200, {"ok": True, "key_set": bool(config.API_KEY)}
+
+
+def answer(origin, hosts, length: int, read, client: str) -> tuple[int, dict]:
+    """POST /api/claude — shared by the local server and app.py on Vercel."""
+    if not origin_allowed(origin, hosts):
+        return 403, {"error": {"code": "not_granted", "message": "This site is not allowed to use the tutor."}}
+    if length > MAX_BODY:
+        return 413, {"error": {"code": "prompt_too_large", "message": "That request is too big."}}
+    try:
+        body = json.loads(read(length) or b"{}")
+    except json.JSONDecodeError:
+        return 400, {"error": {"code": "invalid_request", "message": "Bad JSON."}}
+    try:
+        return 200, tutor.handle(body, client)
+    except LLMError as e:
+        print(f"  ✗ Claude problem: {e.code} — {e.message}")
+        return e.status, {"error": {"code": e.code, "message": e.message}}
+
+
+def static_file(path: str):
+    """A file from public/, or None. "/" is the app."""
+    if path in ("/", ""):
+        path = "/index.html"
+    file = (config.APP_DIR / path.lstrip("/")).resolve()
+    if config.APP_DIR.resolve() not in file.parents or not file.is_file():
+        return None
+    ctype = (mimetypes.guess_type(file.name)[0] or "application/octet-stream") + ("; charset=utf-8" if file.suffix == ".html" else "")
+    return ctype, file.read_bytes()
+
+
+class Handler(BaseHTTPRequestHandler):
+    """Local server: the app from public/ plus the API, all on one address."""
     server_version = "ShowYourWorking/1.0"
-
-    # ---------- helpers ----------
-    def _origin_ok(self) -> bool:
-        origin = self.headers.get("Origin")
-        if not origin:
-            return True
-        hosts = {self.headers.get("Host"), self.headers.get("X-Forwarded-Host")} - {None}
-        own = {f"{scheme}://{h}" for h in hosts for scheme in ("http", "https")}
-        return origin in own or origin in config.ALLOWED_ORIGINS
-
-    def _cors(self):
-        origin = self.headers.get("Origin")
-        if origin and origin in config.ALLOWED_ORIGINS:
-            self.send_header("Access-Control-Allow-Origin", origin)
-            self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
-            self.send_header("Access-Control-Allow-Headers", "content-type")
-            self.send_header("Vary", "Origin")
 
     def _json(self, status: int, payload: dict):
         body = json.dumps(payload).encode()
         self.send_response(status)
         self.send_header("Content-Type", "application/json")
         self.send_header("Content-Length", str(len(body)))
-        self._cors()
+        for k, v in cors_headers(self.headers.get("Origin")):
+            self.send_header(k, v)
         self.end_headers()
         self.wfile.write(body)
 
     def _client(self) -> str:
-        fwd = self.headers.get("X-Forwarded-For")  # set by hosts like Vercel
+        fwd = self.headers.get("X-Forwarded-For")
         return fwd.split(",")[0].strip() if fwd else self.client_address[0]
 
     def log_message(self, fmt, *args):  # keep the terminal tidy
@@ -56,44 +87,20 @@ class ApiHandler(BaseHTTPRequestHandler):
 
     def do_OPTIONS(self):
         self.send_response(204)
-        self._cors()
+        for k, v in cors_headers(self.headers.get("Origin")):
+            self.send_header(k, v)
         self.end_headers()
-
-    def handle_health(self):
-        return self._json(200, {"ok": True, "key_set": bool(config.API_KEY)})
-
-    def handle_claude(self):
-        if not self._origin_ok():
-            return self._json(403, {"error": {"code": "not_granted", "message": "This site is not allowed to use the tutor."}})
-        length = int(self.headers.get("Content-Length") or 0)
-        if length > MAX_BODY:
-            return self._json(413, {"error": {"code": "prompt_too_large", "message": "That request is too big."}})
-        try:
-            body = json.loads(self.rfile.read(length) or b"{}")
-        except json.JSONDecodeError:
-            return self._json(400, {"error": {"code": "invalid_request", "message": "Bad JSON."}})
-        try:
-            return self._json(200, tutor.handle(body, self._client()))
-        except LLMError as e:
-            print(f"  ✗ Claude problem: {e.code} — {e.message}")
-            return self._json(e.status, {"error": {"code": e.code, "message": e.message}})
-
-
-class Handler(ApiHandler):
-    """Local server: the app from public/ plus the API, all on one address."""
 
     def do_GET(self):
         path = unquote(urlparse(self.path).path)
         if path in ("/health", "/api/health"):
-            return self.handle_health()
-        if path in ("/", ""):
-            path = "/index.html"
-        file = (config.APP_DIR / path.lstrip("/")).resolve()
-        if config.APP_DIR.resolve() not in file.parents or not file.is_file():
+            return self._json(*health())
+        found = static_file(path)
+        if not found:
             return self._json(404, {"error": {"code": "not_found", "message": "Not found."}})
-        data = file.read_bytes()
+        ctype, data = found
         self.send_response(200)
-        self.send_header("Content-Type", (mimetypes.guess_type(file.name)[0] or "application/octet-stream") + ("; charset=utf-8" if file.suffix == ".html" else ""))
+        self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         self.wfile.write(data)
@@ -101,7 +108,9 @@ class Handler(ApiHandler):
     def do_POST(self):
         if urlparse(self.path).path != "/api/claude":
             return self._json(404, {"error": {"code": "not_found", "message": "Not found."}})
-        return self.handle_claude()
+        hosts = [self.headers.get("Host"), self.headers.get("X-Forwarded-Host")]
+        self._json(*answer(self.headers.get("Origin"), hosts, int(self.headers.get("Content-Length") or 0),
+                           self.rfile.read, self._client()))
 
 
 FIXES = {
