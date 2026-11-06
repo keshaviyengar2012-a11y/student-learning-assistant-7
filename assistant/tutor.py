@@ -1,4 +1,6 @@
 """Rules every request follows before it reaches Claude."""
+from __future__ import annotations
+
 import time
 from collections import defaultdict, deque
 
