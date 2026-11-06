@@ -18,14 +18,16 @@ def _load_dotenv(path: Path) -> None:
 
 _load_dotenv(ROOT / ".env")
 
-API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
-MODEL = os.environ.get("MODEL", "claude-sonnet-5-5")
-QUICK_MODEL = os.environ.get("QUICK_MODEL", "claude-haiku-5-5")
-MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "4000"))
+API_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY", "")
+MODEL = os.environ.get("MODEL", "gemini-3.8-flash")
+QUICK_MODEL = os.environ.get("QUICK_MODEL", "gemini-3.5-flash-lite")
+MAX_TOKENS = int(os.environ.get("MAX_TOKENS", "8192"))
+# How much Gemini thinks before answering: minimal, low, medium or high. Low keeps replies quick.
+THINKING = os.environ.get("THINKING", "low")
 PER_STUDENT_PER_HOUR = int(os.environ.get("PER_STUDENT_PER_HOUR", "40"))
 HOST = os.environ.get("HOST", "127.0.0.1")
 PORT = int(os.environ.get("PORT", "8000"))
-# Other websites allowed to call /api/claude. The app's own site is always allowed.
+# Other websites allowed to call /api/tutor. The app's own site is always allowed.
 ALLOWED_ORIGINS = [o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "").split(",") if o.strip()]
 
 APP_DIR = ROOT / "public"

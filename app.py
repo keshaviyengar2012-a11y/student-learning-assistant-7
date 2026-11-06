@@ -2,7 +2,7 @@
 
 Serves the app (public/index.html) and the tutor API:
   GET  /             the app
-  POST /api/claude   doubts and question papers (uses ANTHROPIC_API_KEY)
+  POST /api/tutor    doubts and question papers (uses GEMINI_API_KEY)
   GET  /api/health   shows whether the key is set
 
 On your computer, use  python -m assistant.web  instead.
@@ -36,7 +36,7 @@ def app(environ, start_response):
         return [b""]
     if path in ("/api/health", "/health") and method == "GET":
         return send_json(web.health())
-    if path == "/api/claude":
+    if path in ("/api/tutor", "/api/claude"):
         if method != "POST":
             return send_json((405, {"error": {"code": "invalid_request", "message": "Use POST."}}))
         hosts = [environ.get("HTTP_HOST"), environ.get("HTTP_X_FORWARDED_HOST")]
