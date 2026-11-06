@@ -28,7 +28,7 @@ class VercelApp(unittest.TestCase):
         cls.server.server_close()
 
     def post(self, body, headers=None):
-        req = urllib.request.Request(self.base + "/api/claude", data=json.dumps(body).encode(), method="POST",
+        req = urllib.request.Request(self.base + "/api/tutor", data=json.dumps(body).encode(), method="POST",
                                      headers={"content-type": "application/json", **(headers or {})})
         try:
             with urllib.request.urlopen(req) as r:

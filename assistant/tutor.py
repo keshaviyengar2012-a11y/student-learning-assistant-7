@@ -1,4 +1,4 @@
-"""Rules every request follows before it reaches Claude."""
+"""Rules every request follows before it reaches Gemini."""
 from __future__ import annotations
 
 import time
@@ -6,7 +6,7 @@ from collections import defaultdict, deque
 
 from . import config, llm
 
-# Always sent to Claude, whatever the page asks. The users are school students.
+# Always sent to Gemini, whatever the page asks. The users are school students.
 SAFETY = "\n".join([
     "You are the tutor inside Show Your Working, a study app for school students in Grades 6 to 10 (roughly ages 11 to 16).",
     "Only help with school study: explaining topics, clearing doubts, and writing practice questions.",
@@ -19,7 +19,7 @@ IMAGE_TYPES = {"image/png", "image/jpeg", "image/gif", "image/webp"}
 
 
 def clean_content(content):
-    """Keep only text and image blocks, in the shape Claude expects."""
+    """Keep only text and image blocks (llm.py turns them into Gemini's shape)."""
     if isinstance(content, str):
         return content
     if not isinstance(content, list):
@@ -38,7 +38,7 @@ def clean_content(content):
 
 
 def clean_messages(messages):
-    """Claude needs turns to alternate user / assistant, starting with the user."""
+    """Turns must alternate user / assistant, starting with the user."""
     def blocks(x):
         return [{"type": "text", "text": x}] if isinstance(x, str) else x
 

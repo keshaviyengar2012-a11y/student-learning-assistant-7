@@ -1,4 +1,4 @@
-"""The one place that talks to Claude. Uses only the Python standard library."""
+"""The one place that talks to Gemini. Uses only the Python standard library."""
 from __future__ import annotations
 
 import json
@@ -7,7 +7,7 @@ import urllib.request
 
 from . import config
 
-API_URL = "https://api.anthropic.com/v1/messages"
+API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
 class LLMError(Exception):
@@ -18,20 +18,37 @@ class LLMError(Exception):
         self.code, self.message, self.status = code, message, status
 
 
+def to_gemini(messages) -> list[dict]:
+    """The app's conversation (user/assistant, text and image blocks) in Gemini's shape."""
+    contents = []
+    for m in messages:
+        role = "model" if m["role"] == "assistant" else "user"
+        blocks = [{"type": "text", "text": m["content"]}] if isinstance(m["content"], str) else m["content"]
+        parts = []
+        for b in blocks:
+            if b.get("type") == "text" and b.get("text"):
+                parts.append({"text": b["text"]})
+            elif b.get("type") == "image":
+                parts.append({"inlineData": {"mimeType": b["source"]["media_type"], "data": b["source"]["data"]}})
+        if parts:
+            contents.append({"role": role, "parts": parts})
+    return contents
+
+
 def ask(messages, system: str, tier: str = "default", max_tokens: int | None = None) -> dict:
-    """Send a conversation to Claude. Returns {"text": ..., "truncated": bool}."""
+    """Send a conversation to Gemini. Returns {"text": ..., "truncated": bool}."""
     if not config.API_KEY:
-        raise LLMError("no_key", "ANTHROPIC_API_KEY is missing from .env.", 500)
+        raise LLMError("no_key", "GEMINI_API_KEY is missing from .env.", 500)
     model = config.QUICK_MODEL if tier == "quick" else config.MODEL
-    body = json.dumps({
-        "model": model,
-        "max_tokens": max_tokens or config.MAX_TOKENS,
-        "system": system,
-        "messages": messages,
-    }).encode()
-    req = urllib.request.Request(API_URL, data=body, method="POST", headers={
-        "x-api-key": config.API_KEY,
-        "anthropic-version": "2023-06-01",
+    body = {
+        "systemInstruction": {"parts": [{"text": system}]},
+        "contents": to_gemini(messages),
+        "generationConfig": {"maxOutputTokens": max_tokens or config.MAX_TOKENS},
+    }
+    if config.THINKING:
+        body["generationConfig"]["thinkingConfig"] = {"thinkingLevel": config.THINKING}
+    req = urllib.request.Request(API_URL.format(model=model), data=json.dumps(body).encode(), method="POST", headers={
+        "x-goog-api-key": config.API_KEY,
         "content-type": "application/json",
     })
     try:
@@ -39,27 +56,33 @@ def ask(messages, system: str, tier: str = "default", max_tokens: int | None = N
             data = json.loads(res.read())
     except urllib.error.HTTPError as e:
         try:
-            msg = json.loads(e.read()).get("error", {}).get("message", "")
+            err = json.loads(e.read()).get("error", {})
         except Exception:
-            msg = ""
+            err = {}
+        msg, status = err.get("message", ""), err.get("status", "")
         low = msg.lower()
-        if "credit" in low or "billing" in low:
-            raise LLMError("no_credit", msg or "Your API account has no credit.", 402)
-        if e.code == 401:
+        if "api key" in low or status == "UNAUTHENTICATED" or e.code == 401:
             raise LLMError("bad_key", msg or "The API key was not accepted.", 502)
-        if e.code == 403:
-            raise LLMError("bad_key", msg or "This API key is not allowed to do that.", 502)
-        if e.code == 404 and "model" in low:
+        if "billing" in low or "credit" in low or "prepay" in low:
+            raise LLMError("no_credit", msg or "Billing is not set up for this key.", 402)
+        if e.code == 404 or status == "NOT_FOUND":
             raise LLMError("bad_model", msg or f"Model {model} was not found.", 502)
-        if e.code in (429, 529):
-            raise LLMError("rate_limited", msg or "Claude is busy.", 429)
-        raise LLMError("upstream_error", msg or f"Claude returned error {e.code}.")
+        if e.code == 403 or status == "PERMISSION_DENIED":
+            raise LLMError("bad_key", msg or "This API key is not allowed to do that.", 502)
+        if e.code in (429, 503) or status in ("RESOURCE_EXHAUSTED", "UNAVAILABLE"):
+            raise LLMError("rate_limited", msg or "Gemini is busy or the quota ran out.", 429)
+        raise LLMError("upstream_error", msg or f"Gemini returned error {e.code}.")
     except (urllib.error.URLError, TimeoutError) as e:
-        raise LLMError("no_internet", f"Could not reach Claude ({getattr(e, 'reason', e)}).")
+        raise LLMError("no_internet", f"Could not reach Gemini ({getattr(e, 'reason', e)}).")
 
-    if data.get("stop_reason") == "refusal":
+    if (data.get("promptFeedback") or {}).get("blockReason"):
         raise LLMError("refused", "That one could not be answered.", 200)
-    text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
+    cand = (data.get("candidates") or [{}])[0]
+    finish = cand.get("finishReason", "")
+    parts = (cand.get("content") or {}).get("parts") or []
+    text = "".join(p.get("text", "") for p in parts if not p.get("thought"))
     if not text.strip():
-        raise LLMError("empty_completion", "Claude sent an empty reply.")
-    return {"text": text, "truncated": data.get("stop_reason") == "max_tokens"}
+        if finish in ("SAFETY", "PROHIBITED_CONTENT", "BLOCKLIST", "RECITATION", "SPII"):
+            raise LLMError("refused", "That one could not be answered.", 200)
+        raise LLMError("empty_completion", "Gemini sent an empty reply.")
+    return {"text": text, "truncated": finish == "MAX_TOKENS"}

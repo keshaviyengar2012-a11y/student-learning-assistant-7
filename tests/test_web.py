@@ -21,7 +21,7 @@ class Web(unittest.TestCase):
         cls.server.shutdown()
 
     def post(self, body, headers=None):
-        req = urllib.request.Request(self.base + "/api/claude", data=json.dumps(body).encode(),
+        req = urllib.request.Request(self.base + "/api/tutor", data=json.dumps(body).encode(),
                                      headers={"content-type": "application/json", **(headers or {})}, method="POST")
         try:
             with urllib.request.urlopen(req) as r:

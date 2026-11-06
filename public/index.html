@@ -1,11 +1,10 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Show Your Working</title>
 <script>
-/* Claude connection for the GitHub version.
-   On claude.ai the page gets Claude from the viewer's own account. Here it gets
-   it from your Cloudflare worker instead, so anyone with the link can use it.
-   PASTE YOUR WORKER ADDRESS BETWEEN THE QUOTES: */
-const CLAUDE_WORKER_URL = "/api/claude";
+/* Tutor connection. The page sends doubts and paper requests to this site's
+   own server (/api/tutor), which adds the Gemini API key and asks Gemini.
+   (The window.claude name is kept so the rest of the app works unchanged.) */
+const CLAUDE_WORKER_URL = "/api/tutor";
 
 (function () {
   if (window.claude) return;                      // running on claude.ai: leave it alone
@@ -1382,7 +1381,7 @@ function currentSyllabus() {
   if (s && s.key === suggestionKey()) {
     return {
       prefix: "sg" + profile.grade, short: `${profile.board} Grade ${profile.grade} (suggested)`, suggested: true,
-      title: `Suggested by Claude for ${profile.board}, Grade ${profile.grade} — check these against your school's syllabus`,
+      title: `Suggested by the tutor for ${profile.board}, Grade ${profile.grade} — check these against your school's syllabus`,
       url: (BOARD_SYLLABUS[profile.board] || {}).url || "", subjects: s.subjects
     };
   }
@@ -2145,7 +2144,7 @@ async function setPaperFromTopic(topic, known) {
     }
   }
   if (!sampleFn) {
-    $("paper-note").textContent = "Connecting to Claude…";
+    $("paper-note").textContent = "Connecting to the tutor…";
     if (!(await ensureClaude())) { $("paper-note").textContent = NO_CLAUDE; return; }
   }
   const subject = SUBJ[profile.subject];
@@ -2464,7 +2463,7 @@ function resultCard(q, i) {
 async function explainQuestion(i, threadEl, btn) {
   const q = paper.questions[i];
   if (!sampleFn) {
-    q.thread.push({ role: "tutor", text: "Claude is not available in this view, so I cannot talk this one through. The working above is the whole method." });
+    q.thread.push({ role: "tutor", text: "The tutor is not available right now, so I cannot talk this one through. The working above is the whole method." });
     threadEl.replaceChildren(...q.thread.map(turnNode));
     return;
   }
@@ -2544,11 +2543,11 @@ function studentBlock() {
 function aiErrorCopy(code) {
   const SERVER_FIX = {
     no_server: "The app is not connected to its server. In VS Code run: python -m assistant.web — then open http://127.0.0.1:8000 (not the file itself).",
-    no_key: "No API key found. Add ANTHROPIC_API_KEY in Vercel → Settings → Environment Variables and redeploy (or in .env when running on your computer).",
-    bad_key: "The API key was not accepted. Copy it again from console.anthropic.com (no spaces), then restart the server.",
-    no_credit: "The API account has no credit. Add some at console.anthropic.com → Billing.",
-    bad_model: "This API account cannot use the chosen model. Set MODEL=claude-haiku-5-5 in .env and restart the server.",
-    no_internet: "The server could not reach Claude. Check the internet connection on the computer running it."
+    no_key: "No API key found. Add GEMINI_API_KEY in Vercel → Settings → Environment Variables and redeploy (or in .env when running on your computer).",
+    bad_key: "The Gemini API key was not accepted. Copy it again from aistudio.google.com (no spaces), then redeploy or restart the server.",
+    no_credit: "Billing is not set up for this Gemini key. Check its project plan at aistudio.google.com.",
+    bad_model: "This Gemini key cannot use the chosen model. Set MODEL=gemini-3.5-flash-lite (in Vercel or .env) and redeploy.",
+    no_internet: "The server could not reach Gemini. Check the internet connection on the computer running it."
   };
   if (SERVER_FIX[code]) return SERVER_FIX[code];
   if (code === "not_granted")
@@ -2558,8 +2557,8 @@ function aiErrorCopy(code) {
   if (code === "sampling_disabled" || code === "capability_disabled")
     return "The tutor is not set up yet, so doubts and new papers cannot run. Written hints still work. (Owner: check ANTHROPIC_API_KEY in .env.)";
   if (code === "not_declared")
-    return "Claude is not available here, so you will get the written hints instead.";
-  if (code === "rate_limited") return "Claude is rate limited right now. Use the hint button and try again in a minute.";
+    return "The tutor is not available here, so you will get the written hints instead.";
+  if (code === "rate_limited") return "The tutor is busy right now. Use the hint button and try again in a minute.";
   if (code === "refused") return "That one could not be answered. Try asking it a different way.";
   return "That reply did not come through. The written hints still work.";
 }
@@ -2642,7 +2641,7 @@ async function askDoubt(text) {
   // the tutor's first job is then to work out which topic it belongs to.
   if (!doubtTopic) { doubtTopic = "general"; renderDoubtPickers(); }
   if (!sampleFn) {
-    doubtSay("Connecting to Claude…");
+    doubtSay("Connecting to the tutor…");
     if (!(await ensureClaude())) { doubtSay(NO_CLAUDE); return; }
     doubtSay("");
   }
@@ -3015,7 +3014,7 @@ function renderSyllabusPreview() {
   const syl = officialSyllabus($("in-board").value, $("in-grade").value);
   $("syllabus-preview").textContent = syl
     ? `Topics will come from the official syllabus: ${syl.title}.${syl.note ? " " + syl.note : ""}`
-    : `There is no official topic list for ${$("in-board").value} built in yet. Claude will suggest one for you to check, and you can add your own topics below.`;
+    : `There is no official topic list for ${$("in-board").value} built in yet. The tutor will suggest one for you to check, and you can add your own topics below.`;
 }
 
 // What the student has typed in each subject's topic box, kept while they tick

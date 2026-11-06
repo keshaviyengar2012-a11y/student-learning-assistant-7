@@ -1,4 +1,4 @@
-"""The web server: hosts the app and passes its questions to Claude.
+"""The web server: hosts the app and passes its questions to Gemini.
 
 On your computer:  python -m assistant.web     then open http://127.0.0.1:8000
 On Vercel:         app.py (in the main folder) uses the same functions.
@@ -36,7 +36,7 @@ def health() -> tuple[int, dict]:
 
 
 def answer(origin, hosts, length: int, read, client: str) -> tuple[int, dict]:
-    """POST /api/claude — shared by the local server and app.py on Vercel."""
+    """POST /api/tutor — shared by the local server and app.py on Vercel."""
     if not origin_allowed(origin, hosts):
         return 403, {"error": {"code": "not_granted", "message": "This site is not allowed to use the tutor."}}
     if length > MAX_BODY:
@@ -48,7 +48,7 @@ def answer(origin, hosts, length: int, read, client: str) -> tuple[int, dict]:
     try:
         return 200, tutor.handle(body, client)
     except LLMError as e:
-        print(f"  ✗ Claude problem: {e.code} — {e.message}")
+        print(f"  ✗ Gemini problem: {e.code} — {e.message}")
         return e.status, {"error": {"code": e.code, "message": e.message}}
 
 
@@ -106,7 +106,7 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_POST(self):
-        if urlparse(self.path).path != "/api/claude":
+        if urlparse(self.path).path not in ("/api/tutor", "/api/claude"):
             return self._json(404, {"error": {"code": "not_found", "message": "Not found."}})
         hosts = [self.headers.get("Host"), self.headers.get("X-Forwarded-Host")]
         self._json(*answer(self.headers.get("Origin"), hosts, int(self.headers.get("Content-Length") or 0),
@@ -114,23 +114,23 @@ class Handler(BaseHTTPRequestHandler):
 
 
 FIXES = {
-    "no_key": "Put ANTHROPIC_API_KEY=sk-ant-... in a file named exactly .env next to README.md, then restart.",
-    "bad_key": "The key was rejected. Copy it again from console.anthropic.com → API keys (no spaces), or make a new one.",
-    "no_credit": "Add credit at console.anthropic.com → Billing. New keys do not work until there is credit.",
-    "bad_model": "Your account cannot use that model. Set MODEL=claude-haiku-5-5 in .env and restart.",
-    "no_internet": "This computer could not reach api.anthropic.com. Check your internet / firewall / VPN.",
-    "rate_limited": "Claude is busy or your account's limit was hit. Wait a minute and try again.",
+    "no_key": "Put GEMINI_API_KEY=... in a file named exactly .env next to README.md, then restart.",
+    "bad_key": "The key was rejected. Copy it again from aistudio.google.com → Get API key (no spaces), or make a new one.",
+    "no_credit": "Billing is not set up for this key. Check aistudio.google.com → Get API key → your project's plan.",
+    "bad_model": "Your key cannot use that model. Set MODEL=gemini-3.5-flash-lite in .env and restart.",
+    "no_internet": "This computer could not reach Google. Check your internet / firewall / VPN.",
+    "rate_limited": "Gemini is busy or the key's free quota ran out. Wait a minute (or until tomorrow for the daily quota).",
 }
 
 
-def check_claude():
+def check_tutor():
     """One tiny request at start-up, so problems show here instead of in the app."""
     from . import llm
     try:
-        llm.ask([{"role": "user", "content": "Reply with the word OK."}], "Reply with one word.", max_tokens=5)
-        print("  ✓ Claude is connected. Doubts and papers will work.")
+        llm.ask([{"role": "user", "content": "Reply with the word OK."}], "Reply with one word.", max_tokens=200)
+        print(f"  ✓ Gemini is connected ({config.MODEL}). Doubts and papers will work.")
     except LLMError as e:
-        print(f"  ✗ Claude is NOT working: {e.message}")
+        print(f"  ✗ Gemini is NOT working: {e.message}")
         print(f"    Fix: {FIXES.get(e.code, 'Send this message to whoever set the app up.')}")
 
 
@@ -138,7 +138,7 @@ def main():
     server = ThreadingHTTPServer((config.HOST, config.PORT), Handler)
     print(f"Show Your Working is running at http://{'127.0.0.1' if config.HOST == '0.0.0.0' else config.HOST}:{config.PORT}")
     print(f"  Key from .env: {'found (' + config.API_KEY[:10] + '…)' if config.API_KEY else 'NOT FOUND'}")
-    check_claude()
+    check_tutor()
     try:
         server.serve_forever()
     except KeyboardInterrupt:
