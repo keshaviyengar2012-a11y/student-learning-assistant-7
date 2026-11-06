@@ -1,4 +1,6 @@
 """Ask doubts from the terminal.  Run:  python -m assistant.cli"""
+from __future__ import annotations
+
 from datetime import datetime
 
 from . import curriculum, profile, tutor

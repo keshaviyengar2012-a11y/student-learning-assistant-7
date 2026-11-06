@@ -28,6 +28,6 @@ PORT = int(os.environ.get("PORT", "8000"))
 # Other websites allowed to call /api/claude. The app's own site is always allowed.
 ALLOWED_ORIGINS = [o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "").split(",") if o.strip()]
 
-APP_DIR = ROOT / "show your working"
+APP_DIR = ROOT / "public"
 DATA_DIR = ROOT / "data"
 STUDENTS_DIR = ROOT / "students"

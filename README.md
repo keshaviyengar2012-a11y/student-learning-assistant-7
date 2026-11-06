@@ -6,50 +6,50 @@ account needed. Claude is reached through **your** API key, which stays on the s
 
 ```
 student-learning-assistant/
+├── api/
+│   ├── claude.py       Vercel function: POST /api/claude
+│   └── health.py       Vercel function: GET /api/health
 ├── assistant/
 │   ├── __init__.py
 │   ├── cli.py          ask doubts in the terminal
-│   ├── config.py       reads settings from .env
+│   ├── config.py       reads settings from .env / environment
 │   ├── curriculum.py   boards, grades, official syllabus topics
 │   ├── llm.py          the only file that talks to Claude
 │   ├── profile.py      student profiles for the terminal version
 │   ├── tutor.py        safety rules + per-student limits
-│   └── web.py          the web server
+│   └── web.py          the API handler + a local web server
 ├── data/syllabus.json  official topics (NCERT, Cambridge IGCSE, Lower Secondary)
-├── show your working/index.html   the app
+├── public/index.html   the app (Vercel serves this at /)
 ├── students/           terminal profiles (not uploaded)
 ├── tests/
+├── vercel.json         Vercel settings (60-second time limit for papers)
+├── .vercelignore
 ├── .env.example
 ├── .gitignore
-├── render.yaml
 └── README.md
 ```
 
+## Put it online with Vercel
+1. Go to **vercel.com**, sign in with GitHub, click **Add New → Project** and import this repo.
+2. Leave **Framework Preset** as **Other** and the build settings empty.
+3. Open **Environment Variables** and add `ANTHROPIC_API_KEY` = your key from console.anthropic.com.
+4. Click **Deploy**. Share the address Vercel gives you, e.g. `https://student-learning-assistant-7.vercel.app`.
+
+Check it: open `/api/health` on your address — it should say `"key_set": true`.
+Added or changed the key later? Go to **Deployments → ⋯ → Redeploy** so it takes effect.
+
 ## Run it on your computer (VS Code)
-1. Get an API key at **console.anthropic.com** (add credit, set a monthly spend limit).
-2. Copy `.env.example` to `.env` and paste your key after `ANTHROPIC_API_KEY=`.
-3. In the VS Code terminal:
-   ```
-   python -m assistant.web
-   ```
-4. Open **http://127.0.0.1:8000**.
+1. Copy `.env.example` to `.env` and paste your key after `ANTHROPIC_API_KEY=`.
+2. In the terminal: `python -m assistant.web`, then open **http://127.0.0.1:8000**.
+   The terminal tests Claude at start-up and tells you exactly what to fix if it is not working.
 
 Terminal version: `python -m assistant.cli`  
 Tests: `python -m unittest`
 
-## Put it online for your friends (Render, free tier)
-GitHub Pages cannot run Python, so the code lives on GitHub and Render runs it.
-1. Push this folder to GitHub from VS Code (Source Control → Publish to GitHub).
-   `.env` is in `.gitignore`, so your key is **not** uploaded — check this before you publish.
-2. On **render.com**: New → Blueprint → pick your repo. It reads `render.yaml`.
-3. When it asks for `ANTHROPIC_API_KEY`, paste your key. Click Apply.
-4. Share the address Render gives you, e.g. `https://show-your-working.onrender.com`.
-
-Check it is working: open `/health` on your address — it should say `"key_set": true`.
-
 ## Good to know
-- **Cost:** every doubt and paper uses your API credit. Your spend limit caps it.
-- **Limits:** each student can make 40 requests an hour (`PER_STUDENT_PER_HOUR`).
+- **Cost:** every doubt and paper uses your API credit. Set a monthly spend limit at console.anthropic.com.
+- **Limits:** each student can make about 40 requests an hour (`PER_STUDENT_PER_HOUR`). On Vercel this is counted per server copy, so the spend limit is your real safety net.
 - **Safety:** every request tells Claude its users are school students and keeps it to studying.
   Read Anthropic's usage policy before sharing widely — apps used by under-18s need extra safeguards.
 - **Progress** in the web app is saved in each student's own browser.
+- **Your key** lives only in `.env` (never uploaded — it is in `.gitignore`) and in Vercel's settings.

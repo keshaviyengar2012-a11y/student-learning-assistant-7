@@ -1,7 +1,10 @@
 """The web server: hosts the app and passes its questions to Claude.
 
-Run:  python -m assistant.web     then open http://127.0.0.1:8000
+On your computer:  python -m assistant.web     then open http://127.0.0.1:8000
+On Vercel:         api/claude.py and api/health.py use ApiHandler from here.
 """
+from __future__ import annotations
+
 import json
 import mimetypes
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -10,10 +13,11 @@ from urllib.parse import unquote, urlparse
 from . import config, tutor
 from .llm import LLMError
 
-MAX_BODY = 6_000_000  # bytes; room for a photo of working
+MAX_BODY = 4_000_000  # bytes; room for a photo of working (Vercel's limit is 4.5 MB)
 
 
-class Handler(BaseHTTPRequestHandler):
+class ApiHandler(BaseHTTPRequestHandler):
+    """The /api/claude logic. Used by the local server below and by api/claude.py on Vercel."""
     server_version = "ShowYourWorking/1.0"
 
     # ---------- helpers ----------
@@ -21,7 +25,8 @@ class Handler(BaseHTTPRequestHandler):
         origin = self.headers.get("Origin")
         if not origin:
             return True
-        own = {f"http://{self.headers.get('Host')}", f"https://{self.headers.get('Host')}"}
+        hosts = {self.headers.get("Host"), self.headers.get("X-Forwarded-Host")} - {None}
+        own = {f"{scheme}://{h}" for h in hosts for scheme in ("http", "https")}
         return origin in own or origin in config.ALLOWED_ORIGINS
 
     def _cors(self):
@@ -42,23 +47,45 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def _client(self) -> str:
-        fwd = self.headers.get("X-Forwarded-For")  # set by hosts like Render
+        fwd = self.headers.get("X-Forwarded-For")  # set by hosts like Vercel
         return fwd.split(",")[0].strip() if fwd else self.client_address[0]
 
     def log_message(self, fmt, *args):  # keep the terminal tidy
         if "/api/" in (args[0] if args else ""):
             super().log_message(fmt, *args)
 
-    # ---------- routes ----------
     def do_OPTIONS(self):
         self.send_response(204)
         self._cors()
         self.end_headers()
 
+    def handle_health(self):
+        return self._json(200, {"ok": True, "key_set": bool(config.API_KEY)})
+
+    def handle_claude(self):
+        if not self._origin_ok():
+            return self._json(403, {"error": {"code": "not_granted", "message": "This site is not allowed to use the tutor."}})
+        length = int(self.headers.get("Content-Length") or 0)
+        if length > MAX_BODY:
+            return self._json(413, {"error": {"code": "prompt_too_large", "message": "That request is too big."}})
+        try:
+            body = json.loads(self.rfile.read(length) or b"{}")
+        except json.JSONDecodeError:
+            return self._json(400, {"error": {"code": "invalid_request", "message": "Bad JSON."}})
+        try:
+            return self._json(200, tutor.handle(body, self._client()))
+        except LLMError as e:
+            print(f"  ✗ Claude problem: {e.code} — {e.message}")
+            return self._json(e.status, {"error": {"code": e.code, "message": e.message}})
+
+
+class Handler(ApiHandler):
+    """Local server: the app from public/ plus the API, all on one address."""
+
     def do_GET(self):
         path = unquote(urlparse(self.path).path)
-        if path == "/health":
-            return self._json(200, {"ok": True, "key_set": bool(config.API_KEY)})
+        if path in ("/health", "/api/health"):
+            return self.handle_health()
         if path in ("/", ""):
             path = "/index.html"
         file = (config.APP_DIR / path.lstrip("/")).resolve()
@@ -74,26 +101,35 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         if urlparse(self.path).path != "/api/claude":
             return self._json(404, {"error": {"code": "not_found", "message": "Not found."}})
-        if not self._origin_ok():
-            return self._json(403, {"error": {"code": "not_granted", "message": "This site is not allowed to use the tutor."}})
-        length = int(self.headers.get("Content-Length") or 0)
-        if length > MAX_BODY:
-            return self._json(413, {"error": {"code": "prompt_too_large", "message": "That request is too big."}})
-        try:
-            body = json.loads(self.rfile.read(length) or b"{}")
-        except json.JSONDecodeError:
-            return self._json(400, {"error": {"code": "invalid_request", "message": "Bad JSON."}})
-        try:
-            return self._json(200, tutor.handle(body, self._client()))
-        except LLMError as e:
-            return self._json(e.status, {"error": {"code": e.code, "message": e.message}})
+        return self.handle_claude()
+
+
+FIXES = {
+    "no_key": "Put ANTHROPIC_API_KEY=sk-ant-... in a file named exactly .env next to README.md, then restart.",
+    "bad_key": "The key was rejected. Copy it again from console.anthropic.com → API keys (no spaces), or make a new one.",
+    "no_credit": "Add credit at console.anthropic.com → Billing. New keys do not work until there is credit.",
+    "bad_model": "Your account cannot use that model. Set MODEL=claude-haiku-5-5 in .env and restart.",
+    "no_internet": "This computer could not reach api.anthropic.com. Check your internet / firewall / VPN.",
+    "rate_limited": "Claude is busy or your account's limit was hit. Wait a minute and try again.",
+}
+
+
+def check_claude():
+    """One tiny request at start-up, so problems show here instead of in the app."""
+    from . import llm
+    try:
+        llm.ask([{"role": "user", "content": "Reply with the word OK."}], "Reply with one word.", max_tokens=5)
+        print("  ✓ Claude is connected. Doubts and papers will work.")
+    except LLMError as e:
+        print(f"  ✗ Claude is NOT working: {e.message}")
+        print(f"    Fix: {FIXES.get(e.code, 'Send this message to whoever set the app up.')}")
 
 
 def main():
     server = ThreadingHTTPServer((config.HOST, config.PORT), Handler)
-    print(f"Show Your Working is running at http://{config.HOST}:{config.PORT}")
-    if not config.API_KEY:
-        print("Warning: ANTHROPIC_API_KEY is not set in .env — doubts and new papers will not work.")
+    print(f"Show Your Working is running at http://{'127.0.0.1' if config.HOST == '0.0.0.0' else config.HOST}:{config.PORT}")
+    print(f"  Key from .env: {'found (' + config.API_KEY[:10] + '…)' if config.API_KEY else 'NOT FOUND'}")
+    check_claude()
     try:
         server.serve_forever()
     except KeyboardInterrupt:

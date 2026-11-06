@@ -1,5 +1,7 @@
 """Student profiles for the terminal version, saved as JSON in students/.
 (The web app saves progress in each student's own browser.)"""
+from __future__ import annotations
+
 import json
 import re
 from dataclasses import asdict, dataclass, field

@@ -1,4 +1,6 @@
 """Boards, grades, subjects and the official syllabus topics (data/syllabus.json)."""
+from __future__ import annotations
+
 import json
 from functools import lru_cache
 

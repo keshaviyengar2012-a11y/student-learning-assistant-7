@@ -1,4 +1,6 @@
 """The one place that talks to Claude. Uses only the Python standard library."""
+from __future__ import annotations
+
 import json
 import urllib.error
 import urllib.request
@@ -19,7 +21,7 @@ class LLMError(Exception):
 def ask(messages, system: str, tier: str = "default", max_tokens: int | None = None) -> dict:
     """Send a conversation to Claude. Returns {"text": ..., "truncated": bool}."""
     if not config.API_KEY:
-        raise LLMError("sampling_disabled", "ANTHROPIC_API_KEY is missing from .env.", 500)
+        raise LLMError("no_key", "ANTHROPIC_API_KEY is missing from .env.", 500)
     model = config.QUICK_MODEL if tier == "quick" else config.MODEL
     body = json.dumps({
         "model": model,
@@ -40,13 +42,20 @@ def ask(messages, system: str, tier: str = "default", max_tokens: int | None = N
             msg = json.loads(e.read()).get("error", {}).get("message", "")
         except Exception:
             msg = ""
+        low = msg.lower()
+        if "credit" in low or "billing" in low:
+            raise LLMError("no_credit", msg or "Your API account has no credit.", 402)
+        if e.code == 401:
+            raise LLMError("bad_key", msg or "The API key was not accepted.", 502)
+        if e.code == 403:
+            raise LLMError("bad_key", msg or "This API key is not allowed to do that.", 502)
+        if e.code == 404 and "model" in low:
+            raise LLMError("bad_model", msg or f"Model {model} was not found.", 502)
         if e.code in (429, 529):
             raise LLMError("rate_limited", msg or "Claude is busy.", 429)
-        if e.code in (401, 403):
-            raise LLMError("sampling_disabled", msg or "The API key was not accepted.", 502)
         raise LLMError("upstream_error", msg or f"Claude returned error {e.code}.")
-    except (urllib.error.URLError, TimeoutError):
-        raise LLMError("upstream_error", "Could not reach Claude.")
+    except (urllib.error.URLError, TimeoutError) as e:
+        raise LLMError("no_internet", f"Could not reach Claude ({getattr(e, 'reason', e)}).")
 
     if data.get("stop_reason") == "refusal":
         raise LLMError("refused", "That one could not be answered.", 200)

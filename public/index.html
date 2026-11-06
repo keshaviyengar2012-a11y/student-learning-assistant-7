@@ -38,9 +38,10 @@ const CLAUDE_WORKER_URL = "/api/claude";
       });
     } catch (e) {
       if (opts.signal && opts.signal.aborted) throw fail("cancelled", "Stopped.");
-      throw fail("upstream_error", "Could not reach the tutor. Check your internet connection.");
+      throw fail(location.protocol === "file:" ? "no_server" : "upstream_error", "Could not reach the tutor.");
     }
     const data = await res.json().catch(() => null);
+    if (!data && (res.status === 404 || res.status === 405 || res.status === 501)) throw fail("no_server", "No server here.");
     if (!data || data.error) { const er = (data && data.error) || {}; throw fail(er.code || "upstream_error", er.message || "The reply did not come through."); }
     if (opts.onText) opts.onText({ text: data.text, delta: data.text });
     return { text: data.text, truncated: !!data.truncated };
@@ -2541,6 +2542,15 @@ function studentBlock() {
 }
 
 function aiErrorCopy(code) {
+  const SERVER_FIX = {
+    no_server: "The app is not connected to its server. In VS Code run: python -m assistant.web — then open http://127.0.0.1:8000 (not the file itself).",
+    no_key: "No API key found. Add ANTHROPIC_API_KEY in Vercel → Settings → Environment Variables and redeploy (or in .env when running on your computer).",
+    bad_key: "The API key was not accepted. Copy it again from console.anthropic.com (no spaces), then restart the server.",
+    no_credit: "The API account has no credit. Add some at console.anthropic.com → Billing.",
+    bad_model: "This API account cannot use the chosen model. Set MODEL=claude-haiku-5-5 in .env and restart the server.",
+    no_internet: "The server could not reach Claude. Check the internet connection on the computer running it."
+  };
+  if (SERVER_FIX[code]) return SERVER_FIX[code];
   if (code === "not_granted")
     return "The tutor connection does not accept this website yet. (Owner: check ALLOWED_ORIGINS in .env.)";
   if (code === "session_expired")
